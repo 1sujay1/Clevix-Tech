@@ -28,7 +28,7 @@
               </button>
             </div>
             <a href="index.html" class="nav-link">Home</a>
-            <a href="vorquenta.html" class="nav-link" style="color: var(--accent-cyan);"><span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; margin-right: 5px; vertical-align: middle;"></span>Our Product</a>
+            <a href="vorquenta.html" class="nav-link nav-link-product"><span class="product-status-dot"></span>Our Product</a>
             <a href="services.html" class="nav-link">Services</a>
             <a href="pricing.html" class="nav-link">Pricing</a>
             <a href="about.html" class="nav-link">About</a>
