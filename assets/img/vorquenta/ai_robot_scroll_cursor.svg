@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="200" height="240">
+  <defs>
+    <!-- Glossy White 3D Robot Helmet Gradients -->
+    <radialGradient id="headGlow" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </radialGradient>
+
+    <radialGradient id="visorBg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="80%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+
+    <!-- Cyan Glowing LED Eyes Filter -->
+    <filter id="cyanGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <radialGradient id="cyanEye" cx="40%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="60%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </radialGradient>
+
+    <radialGradient id="bodyGlow" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 3D AI Robot Body & Floating Arm/Leg Posture -->
+  <g transform="rotate(-10, 100, 120)">
+    
+    <!-- Left Floating Leg -->
+    <path d="M 65 140 Q 45 180 30 220 C 20 230 40 235 55 220 Q 75 180 85 150 Z" fill="url(#bodyGlow)" stroke="#94A3B8" stroke-width="1.5"/>
+    
+    <!-- Right Floating Leg -->
+    <path d="M 95 145 Q 80 185 70 215 C 60 225 75 230 85 215 Q 105 180 110 150 Z" fill="url(#bodyGlow)" stroke="#94A3B8" stroke-width="1.5"/>
+    
+    <!-- Torso / Chest -->
+    <path d="M 60 95 C 55 125 70 150 100 150 C 130 150 140 125 135 95 C 120 90 75 90 60 95 Z" fill="url(#bodyGlow)" stroke="#CBD5E1" stroke-width="2"/>
+    <ellipse cx="97" cy="115" rx="14" ry="14" fill="#0F172A" stroke="#06B6D4" stroke-width="2"/>
+    <circle cx="97" cy="115" r="7" fill="#38BDF8" filter="url(#cyanGlow)"/>
+
+    <!-- Dark Metallic Neck Joint -->
+    <rect x="85" y="80" width="26" height="18" rx="6" fill="#334155"/>
+
+    <!-- Left Arm -->
+    <path d="M 60 100 C 40 105 25 120 20 140 C 15 150 25 155 35 145 C 45 130 55 120 70 110 Z" fill="url(#bodyGlow)" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- Raised Right Arm (Pointing / Fist Gesture) -->
+    <path d="M 130 95 Q 155 70 170 45 C 175 35 185 45 178 55 Q 160 85 135 110 Z" fill="url(#bodyGlow)" stroke="#94A3B8" stroke-width="2"/>
+    <!-- Raised Hand Fist/Pointer -->
+    <circle cx="173" cy="43" r="12" fill="url(#bodyGlow)" stroke="#94A3B8" stroke-width="2"/>
+    <path d="M 173 35 L 182 23 C 185 19 192 24 188 28 L 178 39 Z" fill="url(#bodyGlow)" stroke="#64748B" stroke-width="1.5"/>
+
+    <!-- Large Glossy 3D Head -->
+    <ellipse cx="98" cy="52" rx="46" ry="42" fill="url(#headGlow)" stroke="#CBD5E1" stroke-width="2"/>
+    
+    <!-- Dark Glass Visor -->
+    <path d="M 62 45 C 62 36 75 33 98 33 C 121 33 134 36 134 45 C 134 60 121 63 98 63 C 75 63 62 60 62 45 Z" fill="url(#visorBg)" stroke="#475569" stroke-width="1.5"/>
+    <path d="M 66 38 C 75 36 90 35 115 36 C 90 34 75 35 66 38 Z" fill="#FFFFFF" opacity="0.4"/>
+
+    <!-- Glowing Cyan LED Eyes -->
+    <ellipse cx="83" cy="48" rx="8" ry="8" fill="url(#cyanEye)" filter="url(#cyanGlow)"/>
+    <circle cx="81" cy="46" r="2.5" fill="#FFFFFF"/>
+
+    <ellipse cx="113" cy="48" rx="8" ry="8" fill="url(#cyanEye)" filter="url(#cyanGlow)"/>
+    <circle cx="111" cy="46" r="2.5" fill="#FFFFFF"/>
+  </g>
+</svg>

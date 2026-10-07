@@ -28,6 +28,7 @@
               </button>
             </div>
             <a href="index.html" class="nav-link">Home</a>
+            <a href="vorquenta.html" class="nav-link" style="color: var(--accent-cyan);"><span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #10b981; margin-right: 5px; vertical-align: middle;"></span>Vorquenta AI CRM</a>
             <a href="services.html" class="nav-link">Services</a>
             <a href="pricing.html" class="nav-link">Pricing</a>
             <a href="about.html" class="nav-link">About</a>
@@ -148,13 +149,14 @@
             </div>
 
             <div>
-              <h4 class="footer-heading">Services</h4>
+              <h4 class="footer-heading">Services & Products</h4>
               <ul class="footer-links">
+                <li><a href="vorquenta.html" style="color: var(--accent-cyan); font-weight: 600;">Vorquenta AI CRM 🌟</a></li>
                 <li><a href="services.html#web-development">Website Development</a></li>
                 <li><a href="services.html#mobile-apps">Mobile App Development</a></li>
                 <li><a href="services.html#digital-marketing">Digital Marketing</a></li>
                 <li><a href="services.html#seo-optimization">SEO Optimization</a></li>
-                <li><a href="services.html#custom-software">Custom Software & CRM</a></li>
+                <li><a href="services.html#custom-software">Custom Software & ERP</a></li>
                 <li><a href="pricing.html">Pricing & Packages</a></li>
               </ul>
             </div>
