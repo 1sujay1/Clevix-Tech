@@ -448,6 +448,87 @@
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 0 0 1px rgba(236, 72, 153, 0.55), 0 22px 48px -6px rgba(0, 0, 0, 0.85), 0 0 32px rgba(236, 72, 153, 0.35);
 }
 
+/* Service Deep-Dive Header with Pricing & Bottom Note */
+.service-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.2rem;
+  flex-wrap: wrap;
+}
+
+.service-header-info {
+  flex: 1 1 540px;
+}
+
+.service-header-price {
+  background: linear-gradient(180deg, rgba(20, 28, 48, 0.95) 0%, rgba(13, 18, 34, 0.98) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.6rem;
+  text-align: right;
+  min-width: 230px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  align-self: flex-start;
+}
+
+.service-header-price .price-from-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.service-header-price .price-val {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0.2rem 0;
+  background: linear-gradient(135deg, #fff 30%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.service-header-price .price-scope-note {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.service-disclaimer-note {
+  margin-top: 2rem;
+  padding: 1rem 1.4rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: var(--radius-sm);
+  color: #94a3b8;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.service-disclaimer-note strong {
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .service-header-row {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.8rem;
+  }
+  .service-header-price {
+    text-align: left;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
 .feature-box-icon {
   width: 56px;
   height: 56px;
