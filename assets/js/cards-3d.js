@@ -20,6 +20,9 @@
 
       let bounds;
       let rafId = null;
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isScrollSwipe = false;
 
       function updateCardTransform(e) {
         if (card.classList.contains('flipped')) return;
@@ -42,8 +45,14 @@
         const rotateX = -deltaY * 12;
         const rotateY = deltaX * 12;
 
+        const sKey = card.dataset.serviceKey;
+        const glowColor = sKey === 'mobile' ? 'rgba(139, 92, 246, 0.35)'
+          : sKey === 'marketing' ? 'rgba(6, 182, 212, 0.35)'
+          : sKey === 'seo' ? 'rgba(16, 185, 129, 0.35)'
+          : 'rgba(59, 130, 246, 0.35)';
+
         card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
-        card.style.boxShadow = `${-rotateY * 1.5}px ${rotateX * 1.5}px 35px rgba(59, 130, 246, 0.25)`;
+        card.style.boxShadow = `${-rotateY * 1.5}px ${rotateX * 1.5}px 38px ${glowColor}`;
       }
 
       function resetCardTransform() {
@@ -65,8 +74,32 @@
         });
       }
 
+      // Touch Scroll Detection (prevents accidental flip when user is simply scrolling vertically on mobile)
+      card.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          isScrollSwipe = false;
+        }
+      }, { passive: true });
+
+      card.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length === 1) {
+          const diffX = Math.abs(e.touches[0].clientX - touchStartX);
+          const diffY = Math.abs(e.touches[0].clientY - touchStartY);
+          if (diffY > 8 || diffX > 8) {
+            isScrollSwipe = true;
+          }
+        }
+      }, { passive: true });
+
       // Flip trigger function
       function toggleFlip(e) {
+        if (isScrollSwipe) {
+          isScrollSwipe = false;
+          return;
+        }
+
         // Prevent click if user clicked a link or quote CTA inside
         if (e.target.closest('a') || e.target.closest('.btn-quote-trigger')) return;
 
@@ -74,6 +107,7 @@
         card.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
         if (isFlipped) {
           card.style.transform = 'rotateY(180deg)';
+          card.style.boxShadow = '';
         } else {
           resetCardTransform();
         }
