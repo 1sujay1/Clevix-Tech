@@ -1249,6 +1249,69 @@
   filter: drop-shadow(0 15px 35px rgba(245, 158, 11, 0.35));
 }
 
+/* Vorquenta Architecture Overview Table */
+.vorquenta-table-card {
+  background: rgba(13, 19, 36, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(59, 130, 246, 0.12);
+  overflow: hidden;
+}
+
+.vorquenta-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vorquenta-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 650px;
+  text-align: left;
+}
+
+.vorquenta-table th {
+  background: rgba(18, 26, 48, 0.98);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 1.15rem 1.4rem;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+  letter-spacing: 0.03em;
+}
+
+.vorquenta-table th:first-child {
+  border-top-left-radius: var(--radius-md);
+}
+
+.vorquenta-table th:last-child {
+  border-top-right-radius: var(--radius-md);
+}
+
+.vorquenta-table td {
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.93rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.vorquenta-table tr:last-child td {
+  border-bottom: none;
+}
+
+.vorquenta-table tr:hover td {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.vorquenta-table td strong {
+  color: #fff;
+  font-weight: 600;
+}
+
 /* Mobile Responsiveness for Vorquenta */
 @media (max-width: 992px) {
   .vorquenta-hero-grid {
@@ -1301,5 +1364,17 @@
   .suite-card-media img {
     height: 220px;
   }
+
+  .vorquenta-table-card {
+    padding: 0.75rem 0.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .vorquenta-table th,
+  .vorquenta-table td {
+    padding: 0.9rem 0.85rem;
+    font-size: 0.86rem;
+  }
 }
+
 
