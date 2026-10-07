@@ -78,6 +78,7 @@
     }
 
     if (mobileToggle) {
+      mobileToggle.dataset.bound = 'true';
       mobileToggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -95,16 +96,20 @@
     }
 
     if (navBackdrop) {
-      navBackdrop.addEventListener('click', () => {
+      navBackdrop.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         setNavState(false);
       });
     }
 
-    navMenu.querySelectorAll('.nav-link, .btn-quote-trigger').forEach((item) => {
-      item.addEventListener('click', () => {
-        setNavState(false);
+    if (navMenu) {
+      navMenu.querySelectorAll('.nav-link, .btn-quote-trigger').forEach((item) => {
+        item.addEventListener('click', () => {
+          setNavState(false);
+        });
       });
-    });
+    }
   }
 
   function renderSharedFooter() {
