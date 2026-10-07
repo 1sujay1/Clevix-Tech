@@ -25,7 +25,7 @@
           </button>
           
           <div class="modal-header">
-            <img src="assets/img/logo-icon.png" alt="Clevix Tech" style="width: 48px; height: 48px; object-fit: contain; margin: 0 auto 0.75rem; display: block; filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4));" />
+            <img src="assets/img/logo-icon.png" alt="Clevix Tech" class="modal-logo" />
             <span class="eyebrow">Quick Inquiry</span>
             <h3 id="modalTitle">Get Your Free Custom Quote</h3>
             <p>Tell us about your project and we'll reply within 24 hours with exact scope & pricing.</p>

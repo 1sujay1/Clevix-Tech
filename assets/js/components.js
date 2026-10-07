@@ -10,6 +10,7 @@
     if (!headerPlaceholder) return;
 
     headerPlaceholder.innerHTML = `
+      <div class="nav-backdrop" id="navBackdrop"></div>
       <header class="site-header" role="banner">
         <div class="container nav-container">
           <a href="index.html" class="brand-logo" aria-label="Clevix Tech Home">
@@ -17,11 +18,25 @@
           </a>
 
           <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main Navigation">
+            <div class="nav-menu-header">
+              <span class="nav-menu-title">Navigation</span>
+              <button type="button" class="nav-close-btn" id="navCloseBtn" aria-label="Close Navigation Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
             <a href="index.html" class="nav-link">Home</a>
             <a href="services.html" class="nav-link">Services</a>
             <a href="pricing.html" class="nav-link">Pricing</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
+            <div class="nav-menu-mobile-cta">
+              <button type="button" class="btn btn-primary btn-quote-trigger" data-service="General Inquiry" style="width: 100%;">
+                Get Free Quote
+              </button>
+            </div>
           </nav>
 
           <div class="nav-actions">
@@ -43,6 +58,52 @@
         </div>
       </header>
     `;
+
+    // Immediately bind mobile nav events to prevent any script race conditions
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navBackdrop = document.getElementById('navBackdrop');
+    const navCloseBtn = document.getElementById('navCloseBtn');
+
+    function setNavState(isOpen) {
+      if (!navMenu) return;
+      navMenu.classList.toggle('open', isOpen);
+      if (navBackdrop) navBackdrop.classList.toggle('open', isOpen);
+      if (mobileToggle) {
+        mobileToggle.classList.toggle('open', isOpen);
+        mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const willOpen = !navMenu.classList.contains('open');
+        setNavState(willOpen);
+      });
+    }
+
+    if (navCloseBtn) {
+      navCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setNavState(false);
+      });
+    }
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', () => {
+        setNavState(false);
+      });
+    }
+
+    navMenu.querySelectorAll('.nav-link, .btn-quote-trigger').forEach((item) => {
+      item.addEventListener('click', () => {
+        setNavState(false);
+      });
+    });
   }
 
   function renderSharedFooter() {
@@ -196,7 +257,10 @@
     `;
   }
 
-  if (document.readyState === 'loading') {
+  if (document.getElementById('shared-header')) {
+    renderSharedHeader();
+    renderSharedFooter();
+  } else if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       renderSharedHeader();
       renderSharedFooter();

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * CLEVIX TECH - MAIN CLIENT CONTROLLER
  * Navbar scroll shrink/blur, mobile drawer, FAQ accordion,
  * rotating text, back-to-top, pricing tabs, auto-carousel & scroll-reveal animations
@@ -37,20 +37,29 @@
     });
   }
 
-  // 2. Mobile Nav Drawer Toggle
+  // 2. Mobile Nav Drawer Toggle (fallback if not already bound)
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
+  const navBackdrop = document.getElementById('navBackdrop');
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
+  if (mobileToggle && navMenu && !mobileToggle.dataset.bound) {
+    mobileToggle.dataset.bound = 'true';
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = navMenu.classList.toggle('open');
+      if (navBackdrop) navBackdrop.classList.toggle('open', isOpen);
+      mobileToggle.classList.toggle('open', isOpen);
       mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    navMenu.querySelectorAll('.nav-link').forEach((link) => {
+    navMenu.querySelectorAll('.nav-link, .btn-quote-trigger').forEach((link) => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
+        if (navBackdrop) navBackdrop.classList.remove('open');
+        mobileToggle.classList.remove('open');
         mobileToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       });
     });
   }

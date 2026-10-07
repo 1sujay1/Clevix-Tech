@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    CLEVIX TECH - DESIGN SYSTEM & CORE STYLES (ENHANCED PALETTE & 80% WIDTH)
    ========================================================================== */
 
@@ -170,6 +170,18 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-full);
   margin-bottom: 1.15rem;
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .eyebrow {
+    font-size: 0.72rem;
+    padding: 0.32rem 0.75rem;
+    letter-spacing: 0.05em;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+  }
 }
 
 .section-header {
