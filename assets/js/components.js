@@ -107,8 +107,19 @@
     }
 
     if (navMenu) {
-      navMenu.querySelectorAll('.nav-link, .btn-quote-trigger').forEach((item) => {
-        item.addEventListener('click', () => {
+      navMenu.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          setNavState(false);
+          if (href && !href.startsWith('#')) {
+            // Allow normal page navigation to proceed
+            window.location.href = href;
+          }
+        });
+      });
+
+      navMenu.querySelectorAll('.btn-quote-trigger').forEach((btn) => {
+        btn.addEventListener('click', () => {
           setNavState(false);
         });
       });
