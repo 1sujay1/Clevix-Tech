@@ -9,8 +9,13 @@
     const headerPlaceholder = document.getElementById('shared-header');
     if (!headerPlaceholder) return;
 
+    // Inject backdrop directly into body so it's never clipped by a parent container
+    const backdropEl = document.createElement('div');
+    backdropEl.className = 'nav-backdrop';
+    backdropEl.id = 'navBackdrop';
+    document.body.appendChild(backdropEl);
+
     headerPlaceholder.innerHTML = `
-      <div class="nav-backdrop" id="navBackdrop"></div>
       <header class="site-header" role="banner">
         <div class="container nav-container">
           <a href="index.html" class="brand-logo" aria-label="Clevix Tech Home">
@@ -60,7 +65,7 @@
       </header>
     `;
 
-    // Immediately bind mobile nav events to prevent any script race conditions
+    // Bind mobile nav events right after rendering
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
     const navBackdrop = document.getElementById('navBackdrop');
@@ -96,9 +101,7 @@
     }
 
     if (navBackdrop) {
-      navBackdrop.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+      navBackdrop.addEventListener('click', () => {
         setNavState(false);
       });
     }
@@ -180,13 +183,13 @@
             </div>
 
             <div>
-              <h4 class="footer-heading">Headquarters</h4>
+              <h4 class="footer-heading">Contact</h4>
               <div class="footer-contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Coimbatore, Tamil Nadu, India - 641001</span>
+                <span>India - 641001</span>
               </div>
               <div class="footer-contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -209,7 +212,7 @@
 
           <div class="footer-bottom">
             <div>
-              &copy; 2026 Clevix Tech. All rights reserved. Registered in Coimbatore, Tamil Nadu, India.
+              &copy; 2026 Clevix Tech. All rights reserved.
             </div>
             <div style="display: flex; gap: 1.5rem;">
               <a href="privacy-policy.html">Privacy</a>
