@@ -54,10 +54,10 @@
               <label for="leadService" class="form-label">Service Interested In</label>
               <select id="leadService" name="service" class="form-control">
                 <option value="Vorquenta AI CRM Demo">Vorquenta AI CRM (Real Estate Demo)</option>
-                <option value="Website Development">Website Development (From ₹199)</option>
-                <option value="Mobile App Development">Mobile App Development (From ₹499)</option>
-                <option value="Digital Marketing">Digital Marketing (From ₹499)</option>
-                <option value="SEO Optimization">SEO Optimization (From ₹999)</option>
+                <option value="Website Development">Website Development (From ₹499)</option>
+                <option value="Mobile App Development">Mobile App Development (From ₹999)</option>
+                <option value="Digital Marketing">Digital Marketing (From ₹1,499)</option>
+                <option value="SEO Optimization">SEO Optimization (From ₹999 onwards*)</option>
                 <option value="Custom Software / Other">Custom Software / Other</option>
               </select>
             </div>
@@ -134,8 +134,16 @@
     if (defaultService) {
       const select = document.getElementById('leadService');
       if (select) {
+        const serviceLower = defaultService.toLowerCase();
         for (let i = 0; i < select.options.length; i++) {
-          if (select.options[i].value.toLowerCase().includes(defaultService.toLowerCase())) {
+          const optVal = select.options[i].value.toLowerCase();
+          const optText = select.options[i].text.toLowerCase();
+          if (
+            optVal.includes(serviceLower) ||
+            serviceLower.includes(optVal) ||
+            serviceLower.startsWith(optVal.split(' ')[0]) ||
+            optText.includes(serviceLower)
+          ) {
             select.selectedIndex = i;
             break;
           }
