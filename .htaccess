@@ -1,21 +1,28 @@
-﻿# ==============================================================================
+# ==============================================================================
 # CLEVIX TECH - CLEAN URLS & APACHE REWRITE RULES
 # ==============================================================================
 RewriteEngine On
 RewriteBase /
 
-# 1. Redirect /index.html directly to root domain /
+# 1. Directory Index
+DirectoryIndex index.html
+
+# 2. Redirect /index.html directly to root domain /
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
 RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
 
-# 2. Redirect any request ending in .html to the clean extensionless URL (301 Permanent)
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/
-RewriteRule ^([^.]+)\.html$ https://%{HTTP_HOST}/ [R=301,L]
+# 3. Redirect /dir/index.html to clean /dir/
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)/index\.html\ HTTP/
+RewriteRule ^(.+)/index\.html$ https://%{HTTP_HOST}/$1/ [R=301,L]
 
-# 3. Internally resolve clean extensionless URLs to their .html files
+# 4. Redirect any request ending in .html to the clean extensionless URL (301 Permanent)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/
+RewriteRule ^([^.]+)\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 5. Internally resolve clean extensionless URLs to their .html files if file exists
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^/]+)/?$ .html [L]
+RewriteRule ^([^/]+)/?$ $1.html [L]
 
-# 4. Custom 404 Error Document
+# 6. Custom 404 Error Document
 ErrorDocument 404 /404.html

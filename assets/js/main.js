@@ -74,14 +74,16 @@
   }
 
   // 3. Highlight current active page link
-  const rawPath = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const rawPath = pathParts.length ? pathParts[pathParts.length - 1].replace(/\.html$/, '') : '';
   const currentSlug = (rawPath === '' || rawPath === 'index') ? '/' : rawPath;
   document.querySelectorAll('.nav-link').forEach((link) => {
     const href = link.getAttribute('href');
-    const linkSlug = href.replace(/^\//, '').replace(/\.html$/, '');
+    if (!href) return;
+    const linkSlug = href.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '');
     if (
       (currentSlug === '/' && (href === '/' || linkSlug === '' || linkSlug === 'index')) ||
-      (currentSlug !== '/' && (linkSlug === currentSlug || href === currentSlug))
+      (currentSlug !== '/' && (linkSlug === currentSlug || href === `/${currentSlug}` || href === currentSlug))
     ) {
       link.classList.add('active');
     }

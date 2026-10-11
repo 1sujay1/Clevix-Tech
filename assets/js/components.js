@@ -19,7 +19,7 @@
       <header class="site-header" role="banner">
         <div class="container nav-container">
           <a href="/" class="brand-logo" aria-label="Clevix Tech Home">
-            <img src="assets/img/logo.png" alt="Clevix Tech Logo" class="brand-logo-img" width="190" height="42" />
+            <img src="/assets/img/logo.png" alt="Clevix Tech Logo" class="brand-logo-img" width="190" height="42" />
           </a>
 
           <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main Navigation">
@@ -33,11 +33,11 @@
               </button>
             </div>
             <a href="/" class="nav-link">Home</a>
-            <a href="vorquenta" class="nav-link nav-link-product"><span class="product-status-dot"></span>Our Product</a>
-            <a href="services" class="nav-link">Services</a>
-            <a href="pricing" class="nav-link">Pricing</a>
-            <a href="about" class="nav-link">About</a>
-            <a href="contact" class="nav-link">Contact</a>
+            <a href="/vorquenta" class="nav-link nav-link-product"><span class="product-status-dot"></span>Our Product</a>
+            <a href="/services" class="nav-link">Services</a>
+            <a href="/pricing" class="nav-link">Pricing</a>
+            <a href="/about" class="nav-link">About</a>
+            <a href="/contact" class="nav-link">Contact</a>
             <div class="nav-menu-mobile-cta">
               <button type="button" class="btn btn-primary btn-quote-trigger" data-service="General Inquiry" style="width: 100%;">
                 Get Free Quote
@@ -136,7 +136,7 @@
           <div class="footer-grid">
             <div class="footer-brand">
               <a href="/" class="brand-logo" aria-label="Clevix Tech Home">
-                <img src="assets/img/logo-full-transparent.png" alt="Clevix Tech - We Build Your Digital Tomorrow" class="brand-logo-img" width="220" height="68" />
+                <img src="/assets/img/logo-full-transparent.png" alt="Clevix Tech - We Build Your Digital Tomorrow" class="brand-logo-img" width="220" height="68" />
               </a>
               <p>
                 <strong>Build. Launch. Grow.</strong> High-performance software engineering, modern websites, custom mobile apps, and result-oriented digital marketing tailored for ambitious businesses across India and worldwide.
@@ -170,26 +170,26 @@
             <div>
               <h4 class="footer-heading">Services & Products</h4>
               <ul class="footer-links">
-                <li><a href="vorquenta" style="color: var(--accent-cyan); font-weight: 600;">Our Product: Vorquenta 🌟</a></li>
-                <li><a href="services#web-development">Website Development</a></li>
-                <li><a href="services#mobile-apps">Mobile App Development</a></li>
-                <li><a href="services#digital-marketing">Digital Marketing</a></li>
-                <li><a href="services#seo-optimization">SEO Optimization</a></li>
-                <li><a href="services#custom-software">Custom Software & ERP</a></li>
-                <li><a href="pricing">Pricing & Packages</a></li>
+                <li><a href="/vorquenta" style="color: var(--accent-cyan); font-weight: 600;">Our Product: Vorquenta 🌟</a></li>
+                <li><a href="/services#web-development">Website Development</a></li>
+                <li><a href="/services#mobile-apps">Mobile App Development</a></li>
+                <li><a href="/services#digital-marketing">Digital Marketing</a></li>
+                <li><a href="/services#seo-optimization">SEO Optimization</a></li>
+                <li><a href="/services#custom-software">Custom Software & ERP</a></li>
+                <li><a href="/pricing">Pricing & Packages</a></li>
               </ul>
             </div>
 
             <div>
               <h4 class="footer-heading">Company</h4>
               <ul class="footer-links">
-                <li><a href="about">About Clevix Tech</a></li>
-                <li><a href="about#values">Core Values</a></li>
-                <li><a href="about#process">Our Workflow</a></li>
-                <li><a href="contact">Contact Us</a></li>
-                <li><a href="privacy-policy">Privacy Policy</a></li>
-                <li><a href="terms-and-conditions">Terms & Conditions</a></li>
-                <li><a href="disclaimer">Disclaimer</a></li>
+                <li><a href="/about">About Clevix Tech</a></li>
+                <li><a href="/about#values">Core Values</a></li>
+                <li><a href="/about#process">Our Workflow</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                <li><a href="/disclaimer">Disclaimer</a></li>
               </ul>
             </div>
 
@@ -226,10 +226,10 @@
               &copy; 2026 Clevix Tech. All rights reserved.
             </div>
             <div style="display: flex; gap: 1.5rem;">
-              <a href="privacy-policy">Privacy</a>
-              <a href="terms-and-conditions">Terms</a>
-              <a href="disclaimer">Disclaimer</a>
-              <a href="sitemap.xml">Sitemap</a>
+              <a href="/privacy-policy">Privacy</a>
+              <a href="/terms-and-conditions">Terms</a>
+              <a href="/disclaimer">Disclaimer</a>
+              <a href="/sitemap.xml">Sitemap</a>
             </div>
           </div>
         </div>

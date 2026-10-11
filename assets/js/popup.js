@@ -25,7 +25,7 @@
           </button>
           
           <div class="modal-header">
-            <img src="assets/img/logo-icon.png" alt="Clevix Tech" class="modal-logo" />
+            <img src="/assets/img/logo-icon.png" alt="Clevix Tech" class="modal-logo" />
             <span class="eyebrow">Quick Inquiry</span>
             <h3 id="modalTitle">Get Your Free Custom Quote</h3>
             <p>Tell us about your project and we'll reply within 24 hours with exact scope & pricing.</p>
@@ -205,13 +205,48 @@
 
     if (hasError) return;
 
-    // Simulate safe client-side submission state (no hardcoded keys/secrets)
-    quoteForm.style.display = 'none';
-    const successState = document.getElementById('formSuccessState');
-    if (successState) successState.style.display = 'block';
+    const submitBtn = quoteForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Request Free Proposal';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting Proposal...';
+    }
 
-    // Mark shown in sessionStorage so it doesn't auto-popup again
-    sessionStorage.setItem('clevix_quote_submitted', 'true');
+    const serviceSelect = document.getElementById('leadService');
+    const messageInput = document.getElementById('leadMessage');
+
+    const payload = {
+      name: nameInput.value.trim(),
+      phone: phoneInput.value.trim(),
+      email: emailInput.value.trim(),
+      service: serviceSelect ? serviceSelect.value : '',
+      message: messageInput ? messageInput.value.trim() : '',
+      source: 'Lead Quote Popup Modal',
+      project_name: (window.CONFIG && window.CONFIG.PROJECT_NAME) || 'Clevix-Tech',
+    };
+
+    if (window.sendContactInquiry) {
+      window.sendContactInquiry(payload)
+        .then(() => {
+          quoteForm.style.display = 'none';
+          const successState = document.getElementById('formSuccessState');
+          if (successState) successState.style.display = 'block';
+          sessionStorage.setItem('clevix_quote_submitted', 'true');
+        })
+        .catch((err) => {
+          alert('Submission error: ' + (err.message || 'Please check your connection and try again.'));
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+          }
+        });
+    } else {
+      // Fallback if config.js not yet loaded
+      quoteForm.style.display = 'none';
+      const successState = document.getElementById('formSuccessState');
+      if (successState) successState.style.display = 'block';
+      sessionStorage.setItem('clevix_quote_submitted', 'true');
+    }
   }
 
   function showError(input) {
