@@ -7,6 +7,15 @@
 (function () {
   'use strict';
 
+  // Clean URL Engine: Strip .html and /index.html in live browser view
+  if (window.location.pathname.endsWith('/index.html')) {
+    const cleanUrl = window.location.pathname.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanUrl);
+  } else if (window.location.pathname.endsWith('.html')) {
+    const cleanUrl = window.location.pathname.replace(/\.html$/, '') + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanUrl);
+  }
+
   // 1. Header scroll behavior (shrink & blur)
   const header = document.querySelector('.site-header');
   const backToTopBtn = document.getElementById('backToTopBtn');
@@ -65,10 +74,15 @@
   }
 
   // 3. Highlight current active page link
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const rawPath = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+  const currentSlug = (rawPath === '' || rawPath === 'index') ? '/' : rawPath;
   document.querySelectorAll('.nav-link').forEach((link) => {
     const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+    const linkSlug = href.replace(/^\//, '').replace(/\.html$/, '');
+    if (
+      (currentSlug === '/' && (href === '/' || linkSlug === '' || linkSlug === 'index')) ||
+      (currentSlug !== '/' && (linkSlug === currentSlug || href === currentSlug))
+    ) {
       link.classList.add('active');
     }
   });
