@@ -297,21 +297,39 @@
 
 .feature-box {
   background: linear-gradient(180deg, rgba(23, 33, 60, 0.94) 0%, rgba(13, 19, 36, 0.98) 100%);
-  border: 1px solid rgba(59, 130, 246, 0.35);
+  border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: var(--radius-lg);
   padding: 2.2rem 1.9rem;
-  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
-    0 0 0 1px rgba(59, 130, 246, 0.22),
+    0 0 0 1px rgba(56, 189, 248, 0.18),
     0 14px 34px -4px rgba(0, 0, 0, 0.75),
-    0 0 24px -2px rgba(59, 130, 246, 0.16);
+    0 0 20px -2px rgba(56, 189, 248, 0.18);
   display: flex;
   flex-direction: column;
+}
+
+/* Centered content for cards with an icon (Home edge, About values, Vorquenta features) */
+.feature-box:has(.feature-box-icon),
+#our-edge .feature-box,
+.values-grid .feature-box {
+  text-align: center;
+  align-items: center;
+}
+
+.feature-box:has(.feature-box-icon) p,
+#our-edge .feature-box p,
+.values-grid .feature-box p {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-box::before {
@@ -321,25 +339,29 @@
   left: 10%;
   right: 10%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.95), rgba(139, 92, 246, 0.95), transparent);
+  background: linear-gradient(90deg, transparent, #38bdf8, #818cf8, transparent);
   opacity: 0.85;
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
 .feature-box:hover {
-  border-color: rgba(59, 130, 246, 0.75);
-  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.85);
+  transform: translateY(-8px) scale(1.02);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
-    0 0 0 1px rgba(59, 130, 246, 0.55),
-    0 22px 48px -6px rgba(0, 0, 0, 0.85),
-    0 0 32px rgba(59, 130, 246, 0.35);
+    inset 0 0 24px rgba(56, 189, 248, 0.18),
+    0 0 0 1px rgba(56, 189, 248, 0.65),
+    0 0 24px rgba(56, 189, 248, 0.55),
+    0 0 45px rgba(129, 140, 248, 0.32),
+    0 24px 50px -8px rgba(0, 0, 0, 0.88);
 }
 
 .feature-box:hover::before {
+  left: 0;
+  right: 0;
   opacity: 1;
-  filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.9));
+  filter: drop-shadow(0 0 10px #38bdf8) drop-shadow(0 0 18px #818cf8);
 }
 
 @media (max-width: 680px) {
@@ -540,24 +562,26 @@
 }
 
 .feature-box-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: rgba(59, 130, 246, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.32);
   color: var(--accent-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.4rem;
-  transition: all var(--transition-fast);
+  margin: 0 auto 1.4rem auto;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .feature-box:hover .feature-box-icon {
   background: var(--gradient-brand);
   color: #fff;
-  border-color: transparent;
-  transform: scale(1.08);
+  border-color: rgba(56, 189, 248, 0.8);
+  transform: scale(1.12) rotate(3deg);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.65), 0 0 40px rgba(129, 140, 248, 0.35);
 }
 
 .feature-box-icon svg {
