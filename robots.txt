@@ -1,4 +1,27 @@
+# ==============================================================================
+# CLEVIX TECH - ROBOTS.TXT
+# Website: https://clevixtech.com/
+# ==============================================================================
+
 User-agent: *
 Allow: /
+Disallow: /404.html
 
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap Location
 Sitemap: https://clevixtech.com/sitemap.xml
