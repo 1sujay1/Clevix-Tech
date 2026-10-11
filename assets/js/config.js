@@ -2,13 +2,13 @@
  * CLEVIX TECH - GLOBAL CONFIGURATION & API CLIENT
  * 
  * Update BACKEND_URL below to switch between Localhost and Production.
- * Example Local:       http://localhost:5000
+ * Example Local:       https://server.kyragroupindia.com
  * Example Production:  https://your-api-domain.com
  */
 
 window.CONFIG = {
   // Backend API Base URL
-  BACKEND_URL: "http://localhost:5000",
+  BACKEND_URL: "https://server.kyragroupindia.com",
 
   // Project identification name for email alerts
   PROJECT_NAME: "Clevix-Tech",
@@ -27,7 +27,7 @@ window.CONFIG = {
 window.sendContactInquiry = async function (payload) {
   const backendBase = (window.CONFIG && window.CONFIG.BACKEND_URL)
     ? window.CONFIG.BACKEND_URL.replace(/\/+$/, "")
-    : "http://localhost:5000";
+    : "https://server.kyragroupindia.com";
 
   const endpoint = (window.CONFIG && window.CONFIG.CONTACT_API_ENDPOINT)
     ? window.CONFIG.CONTACT_API_ENDPOINT
