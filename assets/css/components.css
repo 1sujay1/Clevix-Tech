@@ -760,6 +760,14 @@
   -webkit-text-fill-color: transparent;
 }
 
+.price-suffix {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: lowercase;
+  opacity: 0.88;
+}
+
 .card-price-note {
   font-size: 0.74rem;
   color: var(--text-dim);
