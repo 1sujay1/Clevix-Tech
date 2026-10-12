@@ -40,7 +40,7 @@
 
             <div class="form-group">
               <label for="leadPhone" class="form-label">Phone / WhatsApp Number *</label>
-              <input type="tel" id="leadPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required />
+              <input type="tel" id="leadPhone" name="phone" class="form-control" placeholder="+91 90085 39579" required />
               <div class="form-error-msg">Please provide a valid phone number</div>
             </div>
 

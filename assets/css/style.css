@@ -444,6 +444,80 @@ h6 {
   transform: translate(0, 0) !important;
 }
 
+/* ==========================================================================
+   MOBILE VIEW ANIMATIONS (ALL SECTIONS & CARD VIEWS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Smooth entrance and subtle breathing neon ambiance for all mobile cards */
+  .service-card-3d,
+  .gallery-card,
+  .process-step-card,
+  .pricing-card,
+  .testimonial-card,
+  .value-card,
+  .contact-card-box,
+  .feature-box {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Interactive tactile tap feedback on touch */
+  .service-card-3d:active,
+  .gallery-card:active,
+  .process-step-card:active,
+  .pricing-card:active,
+  .testimonial-card:active,
+  .value-card:active,
+  .feature-box:active,
+  .contact-card-box:active,
+  .tech-badge:active {
+    transform: scale(0.98);
+    transition: transform 0.12s ease;
+  }
+
+  /* Subtle mobile neon breathing glow on card borders */
+  .gallery-card,
+  .pricing-card,
+  .contact-card-box,
+  .feature-box {
+    position: relative;
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 14px rgba(59, 130, 246, 0.12);
+  }
+
+  .gallery-card-web {
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 16px rgba(6, 182, 212, 0.18);
+  }
+
+  .gallery-card-app {
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 16px rgba(168, 85, 247, 0.18);
+  }
+
+  .gallery-card-seo {
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), 0 0 16px rgba(16, 185, 129, 0.18);
+  }
+
+  /* Eyebrows subtle neon shine pulse on mobile */
+  .eyebrow {
+    display: inline-flex;
+    animation: mobileEyebrowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes mobileEyebrowPulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.7));
+    }
+  }
+
+  /* Staggered reveal timing on mobile for swift responsiveness */
+  .reveal-slide-up,
+  .reveal-slide-left,
+  .reveal-slide-right {
+    transition-duration: 0.5s !important;
+  }
+}
+
 /* Prefers Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

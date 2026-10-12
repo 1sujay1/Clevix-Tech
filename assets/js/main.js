@@ -215,6 +215,7 @@
     if (!animatedElements.length) return;
 
     if ('IntersectionObserver' in window) {
+      const isMobile = window.innerWidth <= 768;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -223,8 +224,8 @@
           }
         });
       }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: isMobile ? 0.05 : 0.15,
+        rootMargin: isMobile ? '0px 0px -15px 0px' : '0px 0px -40px 0px'
       });
 
       animatedElements.forEach((el) => observer.observe(el));

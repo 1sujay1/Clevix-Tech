@@ -1176,8 +1176,70 @@
 
 .gallery-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(59, 130, 246, 0.45);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7);
+}
+
+/* Card 1: Web Architecture (Cyan / Brand Blue) */
+.gallery-card-web:hover {
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.35);
+}
+
+.gallery-card-web:hover .gallery-preview-icon {
+  transform: scale(1.12);
+  color: #ffffff;
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  border-color: rgba(6, 182, 212, 0.75);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.55);
+}
+
+.gallery-card-web:hover .btn-outline {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.75);
+  color: #38bdf8;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.3);
+}
+
+/* Card 2: Mobile App UI (Purple / Violet) */
+.gallery-card-app:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 25px rgba(168, 85, 247, 0.35);
+}
+
+.gallery-card-app:hover .gallery-preview-icon {
+  transform: scale(1.12);
+  color: #ffffff;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border-color: rgba(168, 85, 247, 0.75);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.55);
+}
+
+.gallery-card-app:hover .btn-outline {
+  background: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.75);
+  color: #c084fc;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.3);
+}
+
+/* Card 3: Growth & SEO (Emerald Green) */
+.gallery-card-seo:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 25px rgba(16, 185, 129, 0.35);
+}
+
+.gallery-card-seo:hover .gallery-preview-icon {
+  transform: scale(1.12);
+  color: #ffffff;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-color: rgba(16, 185, 129, 0.75);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.55);
+}
+
+.gallery-card-seo:hover .btn-outline {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.75);
+  color: #34d399;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
 }
 
 .gallery-preview {
@@ -1188,13 +1250,16 @@
   justify-content: center;
   background: linear-gradient(135deg, #131b2e 0%, #0d1222 100%);
   overflow: hidden;
+  padding-top: 1.8rem;
 }
 
 .gallery-preview-badge {
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
+  white-space: nowrap;
 }
 
 .gallery-preview-icon {
@@ -1207,14 +1272,8 @@
   align-items: center;
   justify-content: center;
   color: var(--accent-cyan);
-  transition: transform var(--transition-normal);
-}
-
-.gallery-card:hover .gallery-preview-icon {
-  transform: scale(1.12);
-  color: #fff;
-  background: var(--gradient-brand);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  transition: transform var(--transition-normal), background var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  margin: 0 auto;
 }
 
 .gallery-content {
@@ -1228,6 +1287,7 @@
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: #fff;
+  text-align: center;
 }
 
 .gallery-content p {
@@ -1236,11 +1296,13 @@
   line-height: 1.6;
   margin-bottom: 1.25rem;
   flex: 1;
+  text-align: center;
 }
 
 .gallery-tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.4rem;
   margin-bottom: 1.25rem;
 }
