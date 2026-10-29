@@ -6,3 +6,6 @@ AddType application/vnd.android.package-archive .apk
     Header set X-Robots-Tag "noindex"
   </FilesMatch>
 </IfModule>
+
+# Old direct links to earlier versions get the current one.
+RedirectMatch 302 ^/hindu-samrajyam/app/Hindu-Samrajyam-1\.2\.1\.apk$ /hindu-samrajyam/app/Hindu-Samrajyam-1.2.2.apk
