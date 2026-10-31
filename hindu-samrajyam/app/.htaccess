@@ -5,4 +5,4 @@ AddType application/vnd.android.package-archive .apk
     Header set X-Robots-Tag "noindex"
   </FilesMatch>
 </IfModule>
-RedirectMatch 302 ^/hindu-samrajyam/app/Hindu-Samrajyam-1\.2\.[12]\.apk$ /hindu-samrajyam/app/Hindu-Samrajyam-1.2.3.apk
+RedirectMatch 302 ^/hindu-samrajyam/app/Hindu-Samrajyam-1\.2\.[123]\.apk$ /hindu-samrajyam/app/Hindu-Samrajyam-1.2.4.apk
