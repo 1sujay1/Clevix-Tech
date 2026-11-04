@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KaiJyothi AI – Android app download (v1.1.0)</title>
+<meta name="description" content="கைஜோதி AI – ஜாதகம், கைரேகை, திருமணப் பொருத்தம், AI ஜோதிட ஆலோசனை. Download the KaiJyothi AI Android app (v1.1.0) by Clevix Tech.">
+<meta name="theme-color" content="#35151F">
+<link rel="canonical" href="https://clevixtech.com/kaijyothi/app/">
+<meta property="og:title" content="கைஜோதி AI – Android app">
+<meta property="og:description" content="ஜாதகம் · கைரேகை · திருமணப் பொருத்தம் · AI ஆலோசனை – பாரம்பரிய நூல்களின் வழியில்.">
+<meta property="og:url" content="https://clevixtech.com/kaijyothi/app/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #35151F; --burgundy: #4A1B2A; --gold: #C69B45; --gold-soft: #E3C789; --gold-ink: #7A5717;
+    --cream: #FFF8E9; --ivory: #F5EBDD; --ink: #262326; --muted: #6B5E5F; --line: #EADCC6; --card: #FFFFFF;
+    --ok: #2F6B3A; --radius: 20px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --cream: #1B1014; --ivory: #261820; --ink: #F5EBDD; --muted: #C9B8B0; --line: #4A3540; --card: #261820; --gold-ink: #E3C789; --ok: #8FD19E; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--ink);
+         font: 16px/1.65 "Noto Sans Tamil", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; color: var(--cream); background: var(--maroon);
+          background-image:
+            radial-gradient(circle at 18% 12%, rgba(198,155,69,.22), transparent 42%),
+            radial-gradient(circle at 88% 78%, rgba(198,155,69,.16), transparent 40%),
+            radial-gradient(rgba(227,199,137,.10) 1.2px, transparent 1.4px);
+          background-size: auto, auto, 22px 22px; }
+  @media (prefers-color-scheme: dark) { .hero { color: #FFF8E9; } }
+  .hero .wrap { display: grid; gap: 40px; padding-top: 28px; padding-bottom: 56px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; text-decoration: none; }
+  .brand svg { width: 36px; height: 36px; }
+  .by { color: var(--gold-soft); text-decoration: none; opacity: .9; }
+  .hero-grid { display: grid; gap: 40px; align-items: center; }
+  @media (min-width: 860px) { .hero-grid { grid-template-columns: 1.15fr .85fr; } .hero .wrap { padding-bottom: 80px; } }
+  .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(227,199,137,.5); background: rgba(198,155,69,.14);
+           color: var(--gold-soft); border-radius: 999px; padding: 4px 14px; font-size: 13px; font-weight: 500; }
+  .badge b { width: 7px; height: 7px; border-radius: 50%; background: #8FD19E; box-shadow: 0 0 0 4px rgba(143,209,158,.18); }
+  h1 { font-family: "Noto Serif Tamil", serif; font-size: clamp(34px, 7vw, 54px); line-height: 1.2; margin: 18px 0 6px; color: var(--gold); }
+  .en-title { font-size: 18px; color: var(--gold-soft); margin: 0 0 18px; letter-spacing: .02em; }
+  .lead { font-size: 18px; max-width: 560px; color: rgba(255,248,233,.86); margin: 0; }
+  .lead small { display: block; margin-top: 6px; font-size: 15px; color: rgba(255,248,233,.66); }
+  .cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700;
+         border-radius: 999px; padding: 15px 26px; font-size: 17px; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn-gold { background: var(--gold); color: var(--maroon); box-shadow: 0 10px 30px -10px rgba(198,155,69,.8); }
+  .btn-gold:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid rgba(227,199,137,.5); color: #FFF8E9; font-weight: 600; padding: 14px 22px; font-size: 15px; }
+  .btn-ghost:hover { background: rgba(255,248,233,.08); }
+  @media (max-width: 520px) { .btn-gold { width: 100%; } .btn-ghost { width: 100%; } }
+  .meta { margin-top: 14px; font-size: 13px; color: rgba(255,248,233,.66); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .meta span::before { content: "•"; margin-right: 6px; color: var(--gold); }
+  .meta span:first-child::before { content: none; }
+
+  /* Phone mock-up */
+  .phone { justify-self: center; width: min(300px, 82vw); aspect-ratio: 9 / 18.5; border-radius: 38px; padding: 10px;
+           background: linear-gradient(145deg, #5a2a38, #1b0c11); box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), inset 0 0 0 1px rgba(227,199,137,.35); }
+  .screen { height: 100%; border-radius: 30px; overflow: hidden; background: #FFF8E9; color: #262326; display: flex; flex-direction: column; font-size: 12px; }
+  .s-bar { background: #35151F; color: #E3C789; padding: 16px 14px 12px; }
+  .s-bar strong { display: block; font-family: "Noto Serif Tamil", serif; font-size: 16px; color: #C69B45; }
+  .s-body { padding: 12px; display: grid; gap: 10px; flex: 1; }
+  .s-card { background: #fff; border: 1px solid #EADCC6; border-radius: 14px; padding: 10px 12px; }
+  .s-card .k { color: #7A5717; font-size: 11px; font-weight: 600; }
+  .score { display: flex; align-items: baseline; gap: 8px; }
+  .score b { font-size: 26px; color: #2F6B3A; font-weight: 700; }
+  .rows { display: grid; gap: 5px; margin-top: 6px; }
+  .rows div { display: flex; justify-content: space-between; border-bottom: 1px dashed #EADCC6; padding-bottom: 4px; }
+  .rows i { font-style: normal; font-weight: 600; }
+  .g { color: #2F6B3A; } .a { color: #7A5717; } .n { color: #A3292F; }
+  .s-nav { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #EADCC6; background: #fff; padding: 8px 4px 10px; text-align: center; font-size: 10px; color: #6B5E5F; }
+  .s-nav span.on { color: #35151F; font-weight: 700; }
+
+  /* Sections */
+  section { padding: 56px 0; }
+  h2 { font-family: "Noto Serif Tamil", serif; font-size: clamp(24px, 4.5vw, 32px); margin: 0 0 6px; color: var(--ink); line-height: 1.3; }
+  .sub { margin: 0 0 28px; color: var(--muted); }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; position: relative;
+          box-shadow: 0 1px 0 rgba(53,21,31,.03), 0 12px 30px -24px rgba(53,21,31,.35); }
+  .icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(198,155,69,.16); color: var(--gold-ink); margin-bottom: 14px; }
+  .icon svg { width: 24px; height: 24px; }
+  .card h3 { margin: 0 0 2px; font-size: 18px; }
+  .card .en { font-size: 13px; color: var(--gold-ink); font-weight: 600; margin: 0 0 8px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .new { position: absolute; top: 18px; right: 18px; background: var(--maroon); color: var(--gold-soft); font-size: 11px; font-weight: 700;
+         border-radius: 999px; padding: 2px 10px; letter-spacing: .04em; }
+  @media (prefers-color-scheme: dark) { .new { background: var(--gold); color: var(--maroon); } }
+
+  .whatsnew { background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .wn { display: grid; gap: 24px; }
+  @media (min-width: 820px) { .wn { grid-template-columns: .8fr 1.2fr; align-items: start; } }
+  .ver { font-family: "Noto Serif Tamil", serif; font-size: 44px; color: var(--gold-ink); line-height: 1; margin: 6px 0 4px; }
+  ul.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  ul.ticks li { display: flex; gap: 12px; align-items: flex-start; }
+  ul.ticks svg { flex: none; width: 22px; height: 22px; color: var(--ok); margin-top: 2px; }
+  ul.ticks span small { display: block; color: var(--muted); font-size: 14px; }
+
+  .steps { counter-reset: step; display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start;
+              background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .steps li::before { content: counter(step); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+                      background: var(--maroon); color: var(--gold-soft); font-weight: 700; }
+  @media (prefers-color-scheme: dark) { .steps li::before { background: var(--gold); color: var(--maroon); } }
+  .steps b { display: block; }
+  .steps small { color: var(--muted); font-size: 14px; display: block; }
+  .two { display: grid; gap: 28px; }
+  @media (min-width: 900px) { .two { grid-template-columns: 1fr 1fr; } }
+
+  .trust { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .trust .card p { font-size: 14px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; word-break: break-all;
+         background: var(--ivory); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; display: block; margin-top: 8px; color: var(--ink); }
+
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; }
+  details + details { margin-top: 10px; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::after { content: "+"; color: var(--gold-ink); font-weight: 700; }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+
+  .final { text-align: center; background: var(--maroon); color: var(--cream); border-radius: 28px; padding: 40px 20px; margin: 0 0 56px;
+           background-image: radial-gradient(circle at 50% -20%, rgba(198,155,69,.35), transparent 60%); }
+  .final h2 { color: var(--gold); }
+  .final p { color: rgba(255,248,233,.78); margin: 0 0 22px; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+  footer a { color: var(--gold-ink); text-decoration: none; }
+  .disclaimer { font-size: 13px; max-width: 640px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#35151F" stroke="#C69B45" stroke-width="1.5"/><path d="M20 8c3 4.5 4.6 7.6 4.6 10.2A4.6 4.6 0 0 1 20 22.8a4.6 4.6 0 0 1-4.6-4.6C15.4 15.6 17 12.5 20 8Z" fill="#C69B45"/><path d="M20 13.5c1.3 2 2 3.4 2 4.6a2 2 0 0 1-4 0c0-1.2.7-2.6 2-4.6Z" fill="#FFF8E9"/><path d="M11 25.5c3 2.4 6 3.5 9 3.5s6-1.1 9-3.5" fill="none" stroke="#C69B45" stroke-width="1.6" stroke-linecap="round"/><path d="M14.5 31h11" stroke="#C69B45" stroke-width="1.6" stroke-linecap="round"/></svg>
+        KaiJyothi AI
+      </a>
+      <a class="by" href="/">by Clevix Tech</a>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="badge"><b></b> புதிய பதிப்பு 1.1.0 · கைரேகை & திருமணப் பொருத்தம்</span>
+        <h1>கைஜோதி AI</h1>
+        <p class="en-title">KaiJyothi AI · Tamil astrology on your phone</p>
+        <p class="lead">உங்கள் ஜாதகம், கைரேகை, திருமணப் பொருத்தம் – பாரம்பரிய தமிழ் ஜோதிட நூல்களின் வழியில், தெளிவான தமிழில்.
+          <small>Your birth chart, palm and marriage matching – read the way the traditional Tamil books teach, in clear Tamil or English.</small></p>
+        <div class="cta">
+          <a class="btn btn-gold" href="KaiJyothi-AI-1.1.0.apk" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            பதிவிறக்கு · Download APK
+          </a>
+          <a class="btn btn-ghost" href="#install">நிறுவும் முறை · How to install</a>
+        </div>
+        <div class="meta"><span>v1.1.0</span><span>40 MB</span><span>Android 8.0+</span><span>4 Nov 2026</span></div>
+      </div>
+
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="s-bar"><strong>திருமணப் பொருத்தம்</strong>மணமகள் – மணமகன்</div>
+          <div class="s-body">
+            <div class="s-card">
+              <div class="score"><b>7.5/10</b> <span>நல்ல பொருத்தம்</span></div>
+            </div>
+            <div class="s-card">
+              <div class="k">பத்துப் பொருத்தங்கள்</div>
+              <div class="rows">
+                <div>ரஜ்ஜு <i class="g">உண்டு</i></div>
+                <div>வேதை <i class="g">உண்டு</i></div>
+                <div>தினம் <i class="g">உண்டு</i></div>
+                <div>கணம் <i class="a">மத்திமம்</i></div>
+                <div>யோனி <i class="g">உண்டு</i></div>
+                <div>ராசி <i class="n">இல்லை</i></div>
+              </div>
+            </div>
+            <div class="s-card"><div class="k">விளக்கம்</div>ரஜ்ஜு, வேதை இரண்டும் பொருந்துவதால் குடும்ப வாழ்க்கைக்கு அடிப்படை உறுதியாக உள்ளது…</div>
+          </div>
+          <div class="s-nav"><span>முகப்பு</span><span>ஜாதகம்</span><span>கைரேகை</span><span>AI</span><span class="on">♥</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>ஒரே செயலியில் எல்லாம்</h2>
+      <p class="sub">Everything in one app</p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+          <h3>ஜாதகக் கட்டம்</h3>
+          <p class="en">Jathagam chart</p>
+          <p>தென்னிந்திய ராசி, நவாம்சக் கட்டங்கள், கிரக நிலைகள், பஞ்சாங்கம், தசை–புக்தி – துல்லியமான கணக்கீடு.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 11h7M8.5 14.5h4"/></svg></div>
+          <h3>AI ஜோதிட ஆலோசனை</h3>
+          <p class="en">Ask KaiJyothi</p>
+          <p>திருமணம், தொழில், கல்வி – உங்கள் ஜாதகத்தைப் பார்த்து, நூல் ஆதாரத்துடன் தமிழில் பதில்.</p>
+        </article>
+        <article class="card">
+          <span class="new">NEW</span>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 11V5.5a1.5 1.5 0 0 1 3 0V10M10 9.5V4a1.5 1.5 0 0 1 3 0v6M13 9.5V5a1.5 1.5 0 0 1 3 0v6M16 10.5V8a1.5 1.5 0 0 1 3 0v6a7 7 0 0 1-7 7h-.6a6 6 0 0 1-4.6-2.2L4 14.5a1.6 1.6 0 0 1 2.4-2.1L7 13"/></svg></div>
+          <h3>கைரேகை AI</h3>
+          <p class="en">Palm reading</p>
+          <p>உள்ளங்கையைப் படம் எடுங்கள் – ஆயுள், புத்தி, இருதய, விதி ரேகைகளையும் மேடுகளையும் நூல்களின் வழியில் விளக்கும்.</p>
+        </article>
+        <article class="card">
+          <span class="new">NEW</span>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></div>
+          <h3>திருமணப் பொருத்தம்</h3>
+          <p class="en">Marriage matching · free</p>
+          <p>பத்துப் பொருத்தங்கள், செவ்வாய் தோஷம், மதிப்பெண் – மரபு விளக்கமும் பரிகாரங்களும். இப்போது இலவசம்.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="whatsnew">
+    <div class="wrap wn">
+      <div>
+        <h2>இந்தப் பதிப்பில் புதியவை</h2>
+        <p class="sub" style="margin-bottom:8px">What's new</p>
+        <p class="ver">v1.1.0</p>
+        <p style="color:var(--muted);margin:0">4 Nov 2026</p>
+      </div>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>கைரேகை AI – கேமரா அல்லது கேலரியிலிருந்து இடது / வலது கைப் படம்<small>Palm reading from a camera or gallery photo of either hand</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>திருமணப் பொருத்தம் – பத்துப் பொருத்தங்கள், செவ்வாய் தோஷம், விளக்கம்<small>Marriage matching: ten poruthams, Chevvai dosham and a written explanation</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>AI பதில்கள் இன்னும் தெளிவாக, ஜோதிடர் பேசுவது போல<small>Clearer, astrologer-style AI answers</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>படம் தெளிவில்லையெனில் கிரெடிட் எடுக்கப்படாது<small>No credits are taken when a palm photo can't be read</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <h2>நிறுவும் முறை</h2>
+      <p class="sub">How to install – takes about a minute</p>
+      <div class="two">
+        <ol class="steps" lang="ta">
+          <li><span><b>பதிவிறக்கு பொத்தானை அழுத்துங்கள்</b><small>பதிவிறக்கம் முடிந்ததும் கோப்பைத் திறக்கவும்.</small></span></li>
+          <li><span><b>"Install unknown apps" அனுமதி</b><small>கேட்டால் → <strong>Allow from this source</strong> இயக்கி, பின் திரும்பவும்.</small></span></li>
+          <li><span><b>Install அழுத்துங்கள்</b><small>Play Protect எச்சரிக்கை வந்தால் → More details → Install anyway.</small></span></li>
+          <li><span><b>செயலியைத் திறந்து உள்நுழையுங்கள்</b><small>மின்னஞ்சல் குறியீடு அல்லது கடவுச்சொல் கொண்டு.</small></span></li>
+        </ol>
+        <ol class="steps" lang="en">
+          <li><span><b>Tap Download</b><small>Open the file when the download finishes.</small></span></li>
+          <li><span><b>Allow the install</b><small>If asked about "Install unknown apps", turn on <strong>Allow from this source</strong> and go back.</small></span></li>
+          <li><span><b>Tap Install</b><small>If Play Protect warns you: More details → Install anyway.</small></span></li>
+          <li><span><b>Open the app and sign in</b><small>With an email code or your password.</small></span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>பாதுகாப்பு</h2>
+      <p class="sub">Safe and private</p>
+      <div class="trust">
+        <div class="card"><h3>Clevix Tech கையொப்பம்</h3><p class="en">Signed by Clevix Tech</p><p>Every release is signed with the same Clevix Tech key, so updates install over the old version without losing anything.</p></div>
+        <div class="card"><h3>உங்கள் தகவல் பாதுகாப்பாக</h3><p class="en">Your data stays private</p><p>Birth details and palm photos are stored privately and are never shown to anyone else. The AI only sees chart facts – never your name, birth date or place.</p></div>
+        <div class="card"><h3>கோப்பைச் சரிபார்க்க</h3><p class="en">Verify the file (SHA-256)</p><code>bc09e2f452f8d2da892589c7d95cd91635d976598a9afea7363024d65a522017</code></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>அடிக்கடி கேட்கப்படுபவை</h2>
+      <p class="sub">FAQ</p>
+      <details><summary>இது இலவசமா? · Is it free?</summary><p>பதிவு செய்ததும் இலவச கிரெடிட்கள் கிடைக்கும். ஜாதகக் கட்டமும் திருமணப் பொருத்தமும் இப்போது இலவசம்; AI கேள்விக்கு 1 கிரெடிட், கைரேகைக்கு 25 கிரெடிட். · You get free credits when you sign up. The chart and marriage matching are free for now; an AI question costs 1 credit and a palm reading 25.</p></details>
+      <details><summary>ஏற்கனவே பழைய பதிப்பு உள்ளதே? · I already have an older test version</summary><p>முன்பு சோதனைக்காக நிறுவிய பதிப்பு இருந்தால், அதை ஒருமுறை நீக்கிவிட்டு இதை நிறுவுங்கள். உங்கள் கணக்கும் ஜாதகங்களும் பாதுகாப்பாக உள்ளன. · If you installed an earlier test copy, uninstall it once and install this one. Your account and charts are kept on the server.</p></details>
+      <details><summary>iPhone-க்கு உண்டா? · Is there an iPhone app?</summary><p>இப்போது Android மட்டும். iPhone / கணினியில் இணையப் பதிப்பைப் பயன்படுத்தலாம். · Android only for now. On iPhone or a computer, use the <a href="https://web-beige-omega-73.vercel.app/">web app</a>.</p></details>
+      <details><summary>Google Play-யில் எப்போது? · When will it be on Google Play?</summary><p>விரைவில். அதுவரை இந்தப் பக்கத்திலிருந்து புதிய பதிப்பைப் பெறலாம். · Soon. Until then, get the latest version from this page.</p></details>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final">
+      <h2>கைஜோதி AI-ஐப் பெறுங்கள்</h2>
+      <p>v1.1.0 · 40 MB · Android 8.0+</p>
+      <a class="btn btn-gold" href="KaiJyothi-AI-1.1.0.apk" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        பதிவிறக்கு · Download APK
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Clevix Tech · <a href="mailto:info@clevixtech.com">info@clevixtech.com</a></span>
+    <span class="disclaimer">கைஜோதி AI விளக்கங்கள் பாரம்பரிய ஜோதிட நூல்களின் அடிப்படையிலானவை; மருத்துவ, சட்ட, நிதி ஆலோசனைக்கு மாற்று அல்ல. · Explanations follow traditional astrology texts and are not medical, legal or financial advice.</span>
+  </div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
