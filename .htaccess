@@ -4,6 +4,10 @@
 RewriteEngine On
 RewriteBase /
 
+# 0. One address for the site: www.clevixtech.com -> clevixtech.com (301, path and query kept)
+RewriteCond %{HTTP_HOST} ^www\.clevixtech\.com$ [NC]
+RewriteRule ^(.*)$ https://clevixtech.com/$1 [R=301,L]
+
 # 1. Directory Index
 DirectoryIndex index.html
 
