@@ -5,4 +5,4 @@ AddType application/vnd.android.package-archive .apk
     Header set X-Robots-Tag "noindex"
   </FilesMatch>
 </IfModule>
-RedirectMatch 302 ^/kaijyothi/app/KaiJyothi-AI-1\.1\.0\.apk$ /kaijyothi/app/KaiJyothi-AI-1.2.0.apk
+RedirectMatch 302 ^/kaijyothi/app/KaiJyothi-AI-1\.(1\.0|2\.0)\.apk$ /kaijyothi/app/KaiJyothi-AI-1.2.1.apk
