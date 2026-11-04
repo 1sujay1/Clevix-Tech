@@ -65,6 +65,11 @@
   .meta { margin-top: 14px; font-size: 13px; color: rgba(255,248,233,.66); display: flex; flex-wrap: wrap; gap: 6px 16px; }
   .meta span::before { content: "•"; margin-right: 6px; color: var(--gold); }
   .meta span:first-child::before { content: none; }
+  .play { margin-top: 18px; display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px 10px 12px; border-radius: 14px;
+          background: rgba(255,248,233,.07); border: 1px solid rgba(227,199,137,.35); color: #FFF8E9; text-align: left; }
+  .play svg { width: 28px; height: 28px; flex: none; }
+  .play b { display: block; font-size: 15px; color: var(--gold-soft); font-weight: 600; }
+  .play small { display: block; font-size: 12px; color: rgba(255,248,233,.7); }
 
   /* Phone mock-up */
   .phone { justify-self: center; width: min(300px, 82vw); aspect-ratio: 9 / 18.5; border-radius: 38px; padding: 10px;
@@ -171,6 +176,10 @@
           <a class="btn btn-ghost" href="#install">நிறுவும் முறை · How to install</a>
         </div>
         <div class="meta"><span>v1.1.0</span><span>40 MB</span><span>Android 8.0+</span><span>4 Nov 2026</span></div>
+        <div class="play" role="note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.7v18.6c0 .5.5.8.9.6L15 12 4.9 2.1c-.4-.2-.9.1-.9.6Z" fill="#00D7FE"/><path d="M15 12 4.9 21.9c.2.1.5.1.7 0l11.9-6.7L15 12Z" fill="#FF3A44"/><path d="M15 12 17.5 8.8 5.6 2.1c-.2-.1-.5-.1-.7 0L15 12Z" fill="#00F076"/><path d="m17.5 8.8-2.5 3.2 2.5 3.2 3.6-2c.6-.4.6-1.2 0-1.6l-3.6-2.8Z" fill="#FFD400"/></svg>
+          <span><b>விரைவில் Play Store-இல் கிடைக்கும்</b><small>Coming soon on Google Play</small></span>
+        </div>
       </div>
 
       <div class="phone" aria-hidden="true">
@@ -309,6 +318,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
         பதிவிறக்கு · Download APK
       </a>
+      <div>
+        <div class="play" role="note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.7v18.6c0 .5.5.8.9.6L15 12 4.9 2.1c-.4-.2-.9.1-.9.6Z" fill="#00D7FE"/><path d="M15 12 4.9 21.9c.2.1.5.1.7 0l11.9-6.7L15 12Z" fill="#FF3A44"/><path d="M15 12 17.5 8.8 5.6 2.1c-.2-.1-.5-.1-.7 0L15 12Z" fill="#00F076"/><path d="m17.5 8.8-2.5 3.2 2.5 3.2 3.6-2c.6-.4.6-1.2 0-1.6l-3.6-2.8Z" fill="#FFD400"/></svg>
+          <span><b>விரைவில் Play Store-இல் கிடைக்கும்</b><small>Coming soon on Google Play</small></span>
+        </div>
+      </div>
     </div>
   </div>
 </main>
