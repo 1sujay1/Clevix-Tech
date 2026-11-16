@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Day Planner – Android app download (v2.2.2)</title>
+<meta name="description" content="Day Planner: a family day planner with alarms that keep ringing, shared schedules and instant updates. Download the Android app (v2.2.2) by Clevix Tech.">
+<meta name="theme-color" content="#0A0B14">
+<link rel="canonical" href="https://clevixtech.com/dayplanner/android-app/">
+<meta property="og:title" content="Day Planner – plan your day together">
+<meta property="og:description" content="Alarms that keep ringing, family schedules you can share, and instant updates when someone adds a task for you.">
+<meta property="og:url" content="https://clevixtech.com/dayplanner/android-app/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --iris: #5B5BF6; --violet: #9B5CF6; --coral: #FF6B5B; --mint: #16A34A; --amber: #F59E0B;
+    --bg: #F6F7FB; --surface: #FFFFFF; --surface-2: #F0F2F8; --ink: #0F1222; --muted: #5D6478; --line: #E6E9F1;
+    --accent: var(--iris); --on-accent: #FFFFFF; --glow: rgba(91,91,246,.28); --edge: rgba(91,91,246,.55);
+    --radius: 22px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0A0B14; --surface: #131524; --surface-2: #1A1D2E; --ink: #F1F2F8; --muted: #A6ACC4; --line: #252A42;
+      --accent: #8E8CFF; --on-accent: #14124F; --glow: rgba(142,140,255,.35); --edge: rgba(255,255,255,.85);
+      --mint: #4ADE80; --amber: #FBBF24;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.6 "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* ------------------------------------------------------------- hero */
+  .hero { position: relative; overflow: hidden; color: #fff; background: #0A0B14;
+          background-image:
+            radial-gradient(circle at 15% 10%, rgba(91,91,246,.45), transparent 45%),
+            radial-gradient(circle at 90% 85%, rgba(155,92,246,.40), transparent 45%),
+            radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px);
+          background-size: auto, auto, 24px 24px; }
+  .hero .wrap { display: grid; gap: 36px; padding-top: 24px; padding-bottom: 64px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; font-size: 16px; }
+  .brand img { width: 38px; height: 38px; border-radius: 12px; box-shadow: 0 6px 24px -6px rgba(142,140,255,.8); }
+  .by { color: rgba(255,255,255,.75); text-decoration: none; }
+  .by:hover { color: #fff; }
+  .hero-grid { display: grid; gap: 44px; align-items: center; }
+  @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.1fr .9fr; } .hero .wrap { padding-bottom: 88px; } }
+  .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.08);
+           border-radius: 999px; padding: 5px 14px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.9); }
+  .badge b { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 4px rgba(74,222,128,.2); }
+  h1 { font-size: clamp(38px, 7.5vw, 62px); line-height: 1.05; letter-spacing: -.02em; margin: 18px 0 14px; font-weight: 800; }
+  h1 span { background: linear-gradient(90deg, #A5A3FF, #D3B4FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 18px; max-width: 540px; color: rgba(255,255,255,.82); margin: 0; }
+  .cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700;
+         border-radius: 16px; padding: 15px 24px; font-size: 17px; transition: transform .15s ease, box-shadow .2s ease, background .2s ease; }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn-main { background: linear-gradient(135deg, var(--iris), var(--violet)); color: #fff;
+              box-shadow: 0 14px 40px -12px rgba(124,92,246,.9), inset 0 0 0 1px rgba(255,255,255,.25); }
+  .btn-main:hover { transform: translateY(-2px); box-shadow: 0 18px 48px -12px rgba(124,92,246,1), inset 0 0 0 1px rgba(255,255,255,.4); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.3); color: #fff; font-weight: 600; padding: 14px 20px; font-size: 15px; }
+  .btn-ghost:hover { background: rgba(255,255,255,.08); }
+  @media (max-width: 520px) { .btn-main, .btn-ghost { width: 100%; } }
+  .meta { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.66); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .meta span::before { content: "•"; margin-right: 6px; color: #A5A3FF; }
+  .meta span:first-child::before { content: none; }
+
+  /* phone mock-up of the planner */
+  .phone { justify-self: center; width: min(300px, 82vw); aspect-ratio: 9 / 18.5; border-radius: 40px; padding: 10px;
+           background: linear-gradient(145deg, #2a2d48, #0c0d18);
+           box-shadow: 0 40px 90px -30px rgba(0,0,0,.8), 0 0 60px -10px rgba(124,92,246,.55), inset 0 0 0 1px rgba(255,255,255,.18); }
+  .screen { height: 100%; border-radius: 31px; overflow: hidden; background: #0A0B14; color: #F1F2F8; display: flex; flex-direction: column;
+            font-size: 11px; padding: 18px 12px 0; gap: 10px; }
+  .s-hi { color: #A6ACC4; font-size: 10px; }
+  .s-date { font-size: 15px; font-weight: 800; margin-top: -6px; }
+  .s-days { display: flex; gap: 5px; }
+  .s-days div { flex: 1; text-align: center; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; padding: 5px 0; font-size: 9px; color: #A6ACC4; }
+  .s-days div b { display: block; font-size: 13px; color: #F1F2F8; }
+  .s-days .on { background: #8E8CFF; border-color: #8E8CFF; color: #14124F; box-shadow: 0 0 14px rgba(142,140,255,.7); }
+  .s-days .on b { color: #14124F; }
+  .s-hero { border-radius: 16px; padding: 12px; background: linear-gradient(135deg, #4B48E8, #8B45E8);
+            box-shadow: 0 0 22px -4px rgba(139,69,232,.8); position: relative; }
+  .s-hero small { opacity: .75; font-size: 8px; letter-spacing: .08em; }
+  .s-hero strong { display: block; font-size: 16px; }
+  .s-bar { height: 5px; border-radius: 9px; background: rgba(255,255,255,.25); margin-top: 8px; overflow: hidden; }
+  .s-bar i { display: block; height: 100%; width: 66%; background: #fff; border-radius: 9px; }
+  .s-chips { display: flex; gap: 5px; }
+  .s-chips span { border: 1px solid rgba(255,255,255,.16); border-radius: 99px; padding: 3px 8px; font-size: 9px; }
+  .s-chips .on { background: #8E8CFF; color: #14124F; border-color: #8E8CFF; }
+  .s-task { border-radius: 14px; background: #131524; border: 1px solid rgba(255,255,255,.14); padding: 9px 10px; display: flex; gap: 8px; }
+  .s-task .c { width: 15px; height: 15px; border-radius: 50%; border: 2px solid #8E8CFF; flex: none; margin-top: 1px; }
+  .s-task.done .c { background: #4ADE80; border-color: #4ADE80; }
+  .s-task.done b { text-decoration: line-through; opacity: .6; }
+  .s-task.urgent { border-color: rgba(251,113,133,.6); box-shadow: 0 0 14px -4px rgba(251,113,133,.7); }
+  .s-task.urgent .c { border-color: #FB7185; }
+  .s-task b { display: block; font-size: 11px; }
+  .s-task em { font-style: normal; font-size: 8.5px; color: #A6ACC4; }
+  .pill { display: inline-block; border-radius: 99px; padding: 1px 6px; font-size: 8px; margin-right: 3px; }
+  .p-who { background: rgba(236,72,153,.18); color: #F9A8D4; }
+  .p-alarm { background: rgba(251,191,36,.18); color: #FBBF24; }
+
+  /* ---------------------------------------------------------- sections */
+  section { padding: 64px 0; }
+  h2 { font-size: clamp(26px, 4.5vw, 36px); line-height: 1.2; letter-spacing: -.01em; margin: 0 0 6px; font-weight: 800; }
+  .sub { margin: 0 0 30px; color: var(--muted); font-size: 17px; }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+  /* boxes: soft glow + a slow white light travelling round the edge */
+  .card { position: relative; background: var(--surface); border-radius: var(--radius); padding: 22px; isolation: isolate;
+          box-shadow: 0 0 0 1px var(--line), 0 16px 36px -26px var(--glow); transition: transform .2s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px var(--line), 0 22px 46px -22px var(--glow); }
+  @property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+  .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; z-index: -1; pointer-events: none;
+                  background: conic-gradient(from var(--angle), transparent 0 70%, var(--edge) 82%, transparent 94%);
+                  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+                  -webkit-mask-composite: xor; mask-composite: exclude; animation: travel 6s linear infinite; }
+  .grid .card:nth-child(2n)::before { animation-delay: -2s; }
+  .grid .card:nth-child(3n)::before { animation-delay: -4s; }
+  @keyframes travel { to { --angle: 360deg; } }
+  .icon { width: 48px; height: 48px; border-radius: 15px; display: grid; place-items: center; margin-bottom: 14px; color: #fff;
+          background: linear-gradient(135deg, var(--iris), var(--violet)); box-shadow: 0 10px 24px -10px rgba(124,92,246,.9); }
+  .icon.coral { background: linear-gradient(135deg, #FF8A7D, #FF5B7F); box-shadow: 0 10px 24px -10px rgba(255,107,91,.9); }
+  .icon.mint { background: linear-gradient(135deg, #34D399, #059669); box-shadow: 0 10px 24px -10px rgba(16,185,129,.9); }
+  .icon.amber { background: linear-gradient(135deg, #FBBF24, #F59E0B); box-shadow: 0 10px 24px -10px rgba(245,158,11,.9); }
+  .icon svg { width: 24px; height: 24px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .new { position: absolute; top: 18px; right: 18px; background: var(--accent); color: var(--on-accent); font-size: 11px; font-weight: 800;
+         border-radius: 999px; padding: 2px 10px; letter-spacing: .05em; }
+
+  .whatsnew { background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .wn { display: grid; gap: 26px; }
+  @media (min-width: 840px) { .wn { grid-template-columns: .8fr 1.2fr; align-items: start; } }
+  .ver { font-size: 52px; font-weight: 800; line-height: 1; margin: 8px 0 6px;
+         background: linear-gradient(90deg, var(--iris), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  ul.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  ul.ticks li { display: flex; gap: 12px; align-items: flex-start; }
+  ul.ticks svg { flex: none; width: 22px; height: 22px; color: var(--mint); margin-top: 2px; }
+  ul.ticks small { display: block; color: var(--muted); font-size: 14px; }
+
+  .steps { counter-reset: step; display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; max-width: 760px; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
+  .steps li::before { content: counter(step); width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; font-weight: 800; color: #fff;
+                      background: linear-gradient(135deg, var(--iris), var(--violet)); box-shadow: 0 8px 20px -8px rgba(124,92,246,.9); }
+  .steps b { display: block; }
+  .steps small { color: var(--muted); font-size: 14px; display: block; }
+
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; word-break: break-all; display: block; margin-top: 10px;
+         background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; color: var(--ink); }
+
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 15px 18px; max-width: 820px; }
+  details + details { margin-top: 10px; }
+  summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--accent); font-weight: 800; }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+
+  .final { text-align: center; color: #fff; border-radius: 30px; padding: 44px 20px; margin: 0 0 64px; position: relative; overflow: hidden;
+           background: #0A0B14; background-image: radial-gradient(circle at 50% -10%, rgba(124,92,246,.65), transparent 60%);
+           box-shadow: 0 30px 70px -40px rgba(124,92,246,.9), inset 0 0 0 1px rgba(255,255,255,.12); }
+  .final p { color: rgba(255,255,255,.75); margin: 6px 0 24px; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+  footer a { color: var(--accent); text-decoration: none; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 10px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#"><img src="icon.svg" alt="" width="38" height="38"> Day Planner</a>
+      <a class="by" href="/">by Clevix Tech</a>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="badge"><b></b> New in 2.2.2 · Personal &amp; Family tasks</span>
+        <h1>Plan your day.<br><span>Together.</span></h1>
+        <p class="lead">Alarms that keep ringing until you act, family schedules you can share, and an instant alert when someone adds a task for you.</p>
+        <div class="cta">
+          <a class="btn btn-main" href="DayPlanner-2.2.2.apk" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            Download APK
+          </a>
+          <a class="btn btn-ghost" href="#install">How to install</a>
+        </div>
+        <div class="meta"><span>v2.2.2</span><span>12.6 MB</span><span>Android 7.0+</span><span>16 Nov 2026</span><span>Free</span></div>
+      </div>
+
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="s-hi">Good morning, Asha</div>
+          <div class="s-date">Tuesday, 17 November</div>
+          <div class="s-days">
+            <div>SUN<b>15</b></div><div>MON<b>16</b></div><div class="on">TUE<b>17</b></div><div>WED<b>18</b></div><div>THU<b>19</b></div>
+          </div>
+          <div class="s-hero"><small>TODAY</small><strong>2 of 3 done</strong><div class="s-bar"><i></i></div></div>
+          <div class="s-chips"><span class="on">Everyone</span><span>You</span><span>Ravi</span><span>Meena</span></div>
+          <div class="s-task urgent"><span class="c"></span><span><b>Pay electricity bill</b><em><span class="pill p-alarm">11:00 AM</span><span class="pill p-who">Ravi added</span></em></span></div>
+          <div class="s-task"><span class="c"></span><span><b>Parent–teacher meeting</b><em><span class="pill p-alarm">Day before · 5 PM</span>Meena's task</em></span></div>
+          <div class="s-task done"><span class="c"></span><span><b>Morning walk</b><em>Only me</em></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Everything your family needs to stay on time</h2>
+      <p class="sub">Simple to use, with the things that matter when you're busy.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 10v3l2 2M5 4 2 7M19 4l3 3"/></svg></div>
+          <h3>Alarms that keep ringing</h3>
+          <p>A full-screen alarm, even on the lock screen, that rings until you mark it done, snooze or silence it. On time, minutes before or a day before.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.8-3.2 3.2-5 6-5s5.2 1.8 6 5"/><path d="M16 4.5a3 3 0 0 1 0 6M18 14c1.7.6 2.8 2.2 3.2 4.6"/></svg></div>
+          <h3>Family &amp; friends</h3>
+          <p>Invite people by mobile number. Once they accept, you see each other's schedules and can add tasks for each other.</p>
+        </article>
+        <article class="card">
+          <span class="new">NEW</span>
+          <div class="icon mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg></div>
+          <h3>Personal or Family</h3>
+          <p>Keep a task just for you, on this phone only, or tick the people it's for and it lands on each of their schedules.</p>
+        </article>
+        <article class="card">
+          <span class="new">NEW</span>
+          <div class="icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div>
+          <h3>Instant updates</h3>
+          <p>"Ravi added Pay electricity bill": a notification within seconds when someone changes your schedule, invites you or joins your family.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7l2 2 3-3M4 14l2 2 3-3M12 8h8M12 15h8"/></svg></div>
+          <h3>Checklists &amp; priorities</h3>
+          <p>Break a task into steps, set urgent or high priority, and pick a category. Swipe to finish or delete, with undo.</p>
+        </article>
+        <article class="card">
+          <div class="icon coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg></div>
+          <h3>Light &amp; dark</h3>
+          <p>A calm, modern design with soft glows. Follow your phone's theme or choose light or dark yourself.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="whatsnew">
+    <div class="wrap wn">
+      <div>
+        <h2>What's new</h2>
+        <p class="ver">v2.2.2</p>
+        <p style="color:var(--muted);margin:0">16 Nov 2026</p>
+      </div>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>Personal and Family tasks<small>Keep a task on this phone only, or tick family members and it goes on each of their schedules</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>Instant family notifications<small>Know right away when someone adds, changes or finishes a task on your schedule</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>Invite by mobile number<small>Find family on Day Planner by their number, or send them a code by SMS or WhatsApp</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>Reminder a day before<small>Alongside on time, 5, 15, 30 minutes and 1 hour before</small></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span>New look with light and dark themes<small>Glowing cards, smoother transitions and a clearer task editor</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <h2>How to install</h2>
+      <p class="sub">Takes about a minute.</p>
+      <ol class="steps">
+        <li><span><b>Tap Download APK</b><small>Open the file when the download finishes.</small></span></li>
+        <li><span><b>Allow the install</b><small>If your phone asks about "Install unknown apps", turn on <strong>Allow from this source</strong> and go back.</small></span></li>
+        <li><span><b>Tap Install</b><small>If Play Protect shows a warning: More details → Install anyway.</small></span></li>
+        <li><span><b>Open Day Planner</b><small>Allow notifications so alarms can ring. Create a free account to share with family, or just start planning.</small></span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>Safe and private</h2>
+      <p class="sub">Your plans are yours.</p>
+      <div class="grid">
+        <div class="card"><h3>Signed by Clevix Tech</h3><p>Every release is signed with the same Clevix Tech key, so updates install over the old version without losing anything.</p></div>
+        <div class="card"><h3>Only your family sees it</h3><p>Shared tasks are visible only to people in your family group. Personal tasks never leave your phone.</p></div>
+        <div class="card"><h3>Verify the file (SHA-256)</h3><p>Matches the APK on this page.</p><code>afa238ba3d1048eedc702efa91560513ee751e36a1198732cd7e92c3bc669871</code></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2>FAQ</h2>
+      <p class="sub">Common questions</p>
+      <details><summary>Is Day Planner free?</summary><p>Yes. Planning, alarms, family sharing and notifications are all free.</p></details>
+      <details><summary>Do I need an account?</summary><p>No. Day Planner works fully offline. Create a free account (name, email and mobile number) when you want to back up your tasks or share with family.</p></details>
+      <details><summary>I installed an earlier test version</summary><p>If Android says the app can't be installed, uninstall the old copy once and install this one. Tasks saved to your account come back when you sign in. Future updates install over this version.</p></details>
+      <details><summary>Will alarms ring if my phone is locked?</summary><p>Yes. Allow notifications and, if asked, "Alarms &amp; reminders" and full-screen alerts. The Settings screen shows what's still needed.</p></details>
+      <details><summary>Is there an iPhone app?</summary><p>Android only for now.</p></details>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final">
+      <h2>Get Day Planner</h2>
+      <p>v2.2.2 · 12.6 MB · Android 7.0+</p>
+      <a class="btn btn-main" href="DayPlanner-2.2.2.apk" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Download APK
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Clevix Tech · <a href="mailto:info@clevixtech.com">info@clevixtech.com</a></span>
+    <span><a href="/privacy-policy/">Privacy policy</a></span>
+  </div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

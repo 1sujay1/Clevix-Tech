@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Day Planner – Account</title>
+<meta name="description" content="Confirm your Day Planner email or choose a new password.">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0A0B14">
+<link rel="icon" type="image/svg+xml" href="/dayplanner/android-app/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --iris: #5B5BF6; --violet: #9B5CF6; --bg: #F6F7FB; --surface: #FFFFFF; --ink: #0F1222; --muted: #5D6478; --line: #E6E9F1;
+          --ok: #16A34A; --bad: #E11D48; --accent: #5B5BF6; --edge: rgba(91,91,246,.6); }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0A0B14; --surface: #131524; --ink: #F1F2F8; --muted: #A6ACC4; --line: #252A42; --ok: #4ADE80; --bad: #FB7185;
+            --accent: #8E8CFF; --edge: rgba(255,255,255,.85); }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; color: var(--ink);
+         font: 16px/1.6 "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased;
+         background: var(--bg);
+         background-image: radial-gradient(circle at 15% 0%, rgba(91,91,246,.22), transparent 45%), radial-gradient(circle at 100% 100%, rgba(155,92,246,.2), transparent 45%); }
+  @property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+  .box { position: relative; width: 100%; max-width: 440px; background: var(--surface); border-radius: 28px; padding: 32px 26px; text-align: center;
+         isolation: isolate; box-shadow: 0 0 0 1px var(--line), 0 30px 70px -40px rgba(91,91,246,.8); }
+  .box::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.6px; z-index: -1; pointer-events: none;
+                 background: conic-gradient(from var(--angle), transparent 0 68%, var(--edge) 82%, transparent 96%);
+                 -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+                 animation: travel 5s linear infinite; }
+  @keyframes travel { to { --angle: 360deg; } }
+  .logo { width: 64px; height: 64px; border-radius: 20px; display: block; margin: 0 auto 18px; box-shadow: 0 12px 30px -10px rgba(124,92,246,.9); }
+  .state { width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 16px; }
+  .state svg { width: 36px; height: 36px; }
+  .state.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 15%, transparent); box-shadow: 0 0 34px -6px color-mix(in srgb, var(--ok) 60%, transparent); }
+  .state.bad { color: var(--bad); background: color-mix(in srgb, var(--bad) 15%, transparent); }
+  h1 { font-size: 26px; line-height: 1.25; margin: 0 0 10px; letter-spacing: -.01em; }
+  p { color: var(--muted); margin: 0 0 8px; }
+  .steps { text-align: left; margin: 18px 0 4px; padding: 14px 16px 14px 34px; border: 1px solid var(--line); border-radius: 16px; color: var(--ink); font-size: 15px; }
+  .steps li + li { margin-top: 6px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 20px; border: 0; cursor: pointer;
+         text-decoration: none; font: inherit; font-weight: 700; color: #fff; border-radius: 16px; padding: 14px 20px;
+         background: linear-gradient(135deg, var(--iris), var(--violet)); box-shadow: 0 14px 34px -14px rgba(124,92,246,1); }
+  .btn:disabled { opacity: .6; cursor: progress; }
+  .link { display: inline-block; margin-top: 14px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 15px; }
+  form { text-align: left; margin-top: 18px; }
+  label { display: block; font-weight: 600; font-size: 14px; margin: 12px 0 6px; }
+  input { width: 100%; font: inherit; color: var(--ink); background: transparent; border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+  input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+  .msg { min-height: 22px; font-size: 14px; margin-top: 10px; color: var(--bad); text-align: left; }
+  .hidden { display: none; }
+  footer { margin-top: 22px; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--accent); text-decoration: none; }
+  @media (prefers-reduced-motion: reduce) { .box::before { animation: none; } }
+</style>
+</head>
+<body>
+<main class="box" aria-live="polite">
+  <img class="logo" src="/dayplanner/android-app/icon.svg" alt="Day Planner" width="64" height="64">
+
+  <!-- Email confirmed -->
+  <section id="confirmed" class="hidden">
+    <div class="state ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+    <h1>Your email is confirmed</h1>
+    <p>Your Day Planner account is ready.</p>
+    <ol class="steps">
+      <li>Go back to the <b>Day Planner</b> app on your phone.</li>
+      <li>Tap <b>Sign in</b> and use your email and password.</li>
+    </ol>
+    <a class="link" href="/dayplanner/android-app/">Don't have the app yet? Download it</a>
+  </section>
+
+  <!-- Choose a new password -->
+  <section id="reset" class="hidden">
+    <h1>Choose a new password</h1>
+    <p id="reset-for">For your Day Planner account.</p>
+    <form id="reset-form" novalidate>
+      <label for="pw">New password</label>
+      <input id="pw" type="password" autocomplete="new-password" minlength="8" required>
+      <label for="pw2">Type it again</label>
+      <input id="pw2" type="password" autocomplete="new-password" minlength="8" required>
+      <div class="msg" id="reset-msg" role="alert"></div>
+      <button class="btn" id="reset-btn" type="submit">Save new password</button>
+    </form>
+  </section>
+
+  <!-- Password changed -->
+  <section id="reset-done" class="hidden">
+    <div class="state ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+    <h1>Password changed</h1>
+    <p>Open Day Planner on your phone and sign in with your new password.</p>
+  </section>
+
+  <!-- Link problem -->
+  <section id="problem" class="hidden">
+    <div class="state bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 7v6M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
+    <h1 id="problem-title">This link has expired</h1>
+    <p id="problem-text">Links work once and only for a limited time.</p>
+    <ol class="steps" id="problem-steps">
+      <li>Open <b>Day Planner</b> and try to sign in.</li>
+      <li>If it says your email isn't confirmed, create the account again with the same email to get a fresh link, or use <b>Forgot password?</b> on the sign-in screen.</li>
+    </ol>
+  </section>
+
+  <!-- Opened without a link -->
+  <section id="plain" class="hidden">
+    <h1>Day Planner account</h1>
+    <p>This page opens from the links we email you: to confirm your address or to choose a new password.</p>
+    <a class="btn" href="/dayplanner/android-app/">Get the Day Planner app</a>
+  </section>
+
+  <footer>Day Planner by <a href="/">Clevix Tech</a> · <a href="mailto:info@clevixtech.com">Help</a></footer>
+</main>
+
+<script>
+(function () {
+  // Supabase project for Day Planner. The publishable key is public by design (it ships inside the app);
+  // every account change below needs the one-time token from the email link.
+  var SUPABASE_URL = "https://yvtdwlgjrjvmmsgmatvw.supabase.co";
+  var PUBLISHABLE_KEY = "sb_publishable_JS18i5UIKgSKR5zElmQPsw_lj22i729";
+
+  function show(id) {
+    ["confirmed", "reset", "reset-done", "problem", "plain"].forEach(function (s) {
+      document.getElementById(s).classList.toggle("hidden", s !== id);
+    });
+  }
+
+  // Supabase puts the result in the #fragment (or the ?query for errors). Read it, then wipe it from the
+  // address bar so the one-time token isn't left in history or shared by accident.
+  var params = new URLSearchParams((location.hash || "").replace(/^#/, ""));
+  new URLSearchParams(location.search).forEach(function (v, k) { if (!params.has(k)) params.set(k, v); });
+  if (location.hash || location.search) history.replaceState(null, "", location.pathname);
+
+  var error = params.get("error_code") || params.get("error");
+  var type = params.get("type");
+  var token = params.get("access_token");
+
+  if (error) {
+    var description = (params.get("error_description") || "").replace(/\+/g, " ");
+    if (error !== "otp_expired" && description) {
+      document.getElementById("problem-title").textContent = "This link didn't work";
+      document.getElementById("problem-text").textContent = description;
+    }
+    show("problem");
+    return;
+  }
+
+  if (type === "recovery" && token) {
+    var email = "";
+    try { email = JSON.parse(atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))).email || ""; } catch (e) {}
+    if (email) document.getElementById("reset-for").textContent = "For " + email;
+    show("reset");
+
+    var form = document.getElementById("reset-form");
+    var msg = document.getElementById("reset-msg");
+    var btn = document.getElementById("reset-btn");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var pw = document.getElementById("pw").value;
+      var pw2 = document.getElementById("pw2").value;
+      if (pw.length < 8) { msg.textContent = "Use at least 8 characters."; return; }
+      if (pw !== pw2) { msg.textContent = "The two passwords don't match."; return; }
+      msg.textContent = "";
+      btn.disabled = true; btn.textContent = "Saving…";
+      var headers = { "apikey": PUBLISHABLE_KEY, "Authorization": "Bearer " + token, "Content-Type": "application/json" };
+      fetch(SUPABASE_URL + "/auth/v1/user", { method: "PUT", headers: headers, body: JSON.stringify({ password: pw }) })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, body: j }; }); })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.body.msg || res.body.message || res.body.error_description || "Couldn't save the password.");
+          // End this one-time web session; the app signs in separately.
+          fetch(SUPABASE_URL + "/auth/v1/logout", { method: "POST", headers: headers }).catch(function () {});
+          token = null;
+          show("reset-done");
+        })
+        .catch(function (err) {
+          var text = String(err.message || err);
+          if (/expired|invalid|jwt/i.test(text)) text = "This link has expired. Ask for a new one with Forgot password? in the app.";
+          if (/same/i.test(text)) text = "Choose a password you haven't used for this account before.";
+          msg.textContent = text;
+          btn.disabled = false; btn.textContent = "Save new password";
+        });
+    });
+    return;
+  }
+
+  if (token || type === "signup" || type === "email" || type === "email_change" || type === "magiclink" || type === "invite") {
+    show("confirmed");
+    return;
+  }
+  show("plain");
+})();
+</script>
+</body>
+</html>
