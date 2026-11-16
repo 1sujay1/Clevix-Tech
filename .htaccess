@@ -30,6 +30,8 @@ RewriteRule ^([^/]+)/?$ $1.html [L]
 
 # Day Planner: /dayplanner/ goes to its download page
 RedirectMatch 301 ^/dayplanner/?$ /dayplanner/android-app/
+# Old Day Planner APK links land on the current version
+RedirectMatch 302 ^/dayplanner/android-app/DayPlanner-2\.2\.2\.apk$ /dayplanner/android-app/DayPlanner-2.3.0.apk
 
 # 6. Custom 404 Error Document
 ErrorDocument 404 /404.html
