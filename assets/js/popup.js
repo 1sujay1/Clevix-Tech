@@ -54,9 +54,9 @@
               <label for="leadService" class="form-label">Service Interested In</label>
               <select id="leadService" name="service" class="form-control">
                 <option value="Vorquenta AI CRM Demo">Vorquenta AI CRM (Real Estate Demo)</option>
-                <option value="Website Development">Website Development (From ₹999)</option>
-                <option value="Mobile App Development">Mobile App Development (From ₹1,999)</option>
-                <option value="Digital Marketing">Digital Marketing (From ₹1,499)</option>
+                <option value="Website Development">Website Development (From ₹1,999)</option>
+                <option value="Mobile App Development">Mobile App Development (From ₹3,999)</option>
+                <option value="Digital Marketing">Digital Marketing (From ₹2,999)</option>
                 <option value="SEO Optimization">SEO Optimization (From ₹999 onwards*)</option>
                 <option value="Custom Software / Other">Custom Software / Other</option>
               </select>
