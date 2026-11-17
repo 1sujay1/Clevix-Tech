@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Day Planner – Delete your account</title>
+<meta name="description" content="How to delete your Day Planner account and data, in the app or by email.">
+<link rel="canonical" href="https://clevixtech.com/dayplanner/delete-account/">
+<meta name="theme-color" content="#060A14">
+<link rel="icon" type="image/svg+xml" href="/dayplanner/android-app/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #F4F7FC; --surface: #FFFFFF; --ink: #0B1324; --muted: #526075; --line: #E2E8F2; --accent: #2563EB; --tint: #DBEAFE; --bad: #E11D48; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #060A14; --surface: #0E1525; --ink: #EDF2FB; --muted: #9CA8C0; --line: #1D2840; --accent: #60A5FA; --tint: #13254A; --bad: #FB7185; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; color: var(--ink); background: var(--bg); font: 16px/1.7 "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  header { background: linear-gradient(135deg, #1D4ED8, #0E7490); color: #fff; padding: 48px 16px 40px; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header a.back { color: #fff; opacity: .85; text-decoration: none; font-weight: 600; font-size: 14px; }
+  header h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 14px 0 8px; letter-spacing: -.01em; }
+  header p { margin: 0; opacity: .9; }
+  main { padding: 28px 16px 56px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px 22px 8px; margin-bottom: 16px; }
+  h2 { font-size: 20px; margin: 0 0 10px; }
+  p, li { color: var(--muted); }
+  p { margin: 0 0 14px; }
+  ol, ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 6px 0; }
+  b, strong { color: var(--ink); }
+  a { color: var(--accent); }
+  .btn { display: inline-block; margin: 2px 0 16px; padding: 12px 18px; border-radius: 14px; color: #fff; font-weight: 700; text-decoration: none;
+         background: linear-gradient(135deg, #2563EB, #0891B2); }
+  .warn { border-color: color-mix(in srgb, var(--bad) 40%, var(--line)); }
+  .warn h2 { color: var(--bad); }
+  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 16px 40px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="back" href="/dayplanner/android-app/">← Day Planner</a>
+    <h1>Delete your Day Planner account</h1>
+    <p>Day Planner by Clevix Tech</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <h2>Option 1: in the app (instant)</h2>
+    <ol>
+      <li>Open <b>Day Planner</b> and go to <b>Settings</b>.</li>
+      <li>Scroll to <b>Account</b> and tap <b>Delete account</b>.</li>
+      <li>Confirm. Your account and its data are deleted straight away.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Option 2: by email (no app needed)</h2>
+    <p>Email us <b>from the address you use for Day Planner</b>, so we know the request is really from you.</p>
+    <a class="btn" href="mailto:info@clevixtech.com?subject=Delete%20my%20Day%20Planner%20account&body=Please%20delete%20my%20Day%20Planner%20account%20and%20all%20its%20data.%0A%0AAccount%20email%3A%20">Email a deletion request</a>
+    <p>Or write to <a href="mailto:info@clevixtech.com">info@clevixtech.com</a> with the subject "Delete my Day Planner account". We'll confirm by email and delete the account within 30 days, usually much sooner.</p>
+  </section>
+
+  <section class="card warn">
+    <h2>What gets deleted</h2>
+    <ul>
+      <li>Your account: name, email address, password and mobile number</li>
+      <li>The tasks on your schedule stored in the cloud</li>
+      <li>Family groups you own, your memberships and your invitations</li>
+      <li>Notification tokens for your phones</li>
+    </ul>
+    <p>This can't be undone. To keep a copy of your tasks first, use <b>Settings → Export backup</b> in the app.</p>
+  </section>
+
+  <section class="card">
+    <h2>What isn't deleted</h2>
+    <ul>
+      <li><b>Crash reports</b>: they aren't linked to your account and are deleted automatically by Firebase within 90 days.</li>
+      <li><b>Tasks saved only on your phone</b> (Personal tasks and backup files you exported): these are on your device. Uninstall the app or delete the files to remove them.</li>
+    </ul>
+    <p>See the <a href="/dayplanner/privacy/">privacy policy</a> for details.</p>
+  </section>
+</main>
+
+<footer>© 2026 Clevix Tech · <a href="/dayplanner/privacy/">Privacy policy</a> · <a href="mailto:info@clevixtech.com">info@clevixtech.com</a></footer>
+</body>
+</html>
