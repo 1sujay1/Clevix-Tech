@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sensware – Android app download (v1.0.0)</title>
+<meta name="description" content="Download the Sensware Android app (v1.0.0): shop hand-cast Indian cast iron tawas, skillets, grill pans and Dutch ovens, save favourites and track your orders. By Clevix Tech.">
+<meta name="theme-color" content="#1A1714">
+<link rel="canonical" href="https://clevixtech.com/sensware/app/">
+<meta property="og:title" content="Sensware – Android app">
+<meta property="og:description" content="Hand-cast Indian cast iron, in your pocket. Shop, save favourites and track orders.">
+<meta property="og:url" content="https://clevixtech.com/sensware/app/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://clevixtech.com/sensware/app/screen-home.webp">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #1A1714; --night-2: #26211C; --orange: #C2410C; --glow: #F97316; --bright: #FB923C;
+    --page: #FFF8F1; --cream: #FBEFE3; --ink: #1F1B17; --muted: #6E6259; --line: #EBDCCB; --card: #FFFFFF;
+    --ok: #2F7A3E; --radius: 22px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --page: #141210; --cream: #1E1A16; --ink: #F6EEE6; --muted: #BFB2A6; --line: #3A322B; --card: #1E1A16; --ok: #86D39A; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--page); color: var(--ink);
+         font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .serif { font-family: "Cormorant Garamond", Georgia, serif; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; color: #FFF8F1; background: var(--night);
+          background-image:
+            radial-gradient(circle at 85% 20%, rgba(249,115,22,.30), transparent 45%),
+            radial-gradient(circle at 10% 90%, rgba(194,65,12,.25), transparent 40%); }
+  .hero .wrap { display: grid; gap: 40px; padding-top: 24px; padding-bottom: 64px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 40px; height: 40px; border-radius: 12px; }
+  .brand b { font-family: "Cormorant Garamond", Georgia, serif; font-size: 24px; letter-spacing: .14em; font-weight: 700; }
+  .by { color: var(--bright); text-decoration: none; }
+  .by:hover { text-decoration: underline; }
+  .hero-grid { display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.1fr .9fr; } .hero .wrap { padding-bottom: 88px; } }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(251,146,60,.45); background: rgba(249,115,22,.12);
+            color: var(--bright); border-radius: 999px; padding: 5px 14px; font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+  .kicker i { width: 7px; height: 7px; border-radius: 50%; background: #86D39A; box-shadow: 0 0 0 4px rgba(134,211,154,.18); }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 700; font-size: clamp(44px, 8vw, 72px); line-height: 1.02; margin: 20px 0 16px; }
+  h1 em { font-style: italic; color: var(--bright); font-weight: 600; }
+  .lead { font-size: 18px; max-width: 520px; color: rgba(255,248,241,.80); margin: 0; }
+  .cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 700;
+         border-radius: 999px; padding: 16px 28px; font-size: 17px; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn-main { background: linear-gradient(135deg, var(--glow), var(--orange)); color: #fff; box-shadow: 0 14px 34px -12px rgba(249,115,22,.85); }
+  .btn-main:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(249,115,22,.95); }
+  .btn-ghost { border: 1px solid rgba(255,248,241,.28); color: #FFF8F1; font-weight: 600; padding: 15px 22px; font-size: 15px; }
+  .btn-ghost:hover { background: rgba(255,248,241,.08); }
+  @media (max-width: 520px) { .cta .btn { width: 100%; } }
+  .meta { margin-top: 16px; font-size: 13px; color: rgba(255,248,241,.62); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .meta span + span::before { content: "•"; margin-right: 8px; color: var(--glow); }
+  .play { margin-top: 22px; display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px 10px 12px; border-radius: 14px;
+          background: rgba(255,248,241,.06); border: 1px dashed rgba(255,248,241,.30); color: #FFF8F1; text-align: left; }
+  .play svg { width: 30px; height: 30px; flex: none; }
+  .play small { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--bright); font-weight: 600; }
+  .play b { display: block; font-size: 16px; font-weight: 600; }
+
+  /* Phones */
+  .phones { position: relative; justify-self: center; width: min(420px, 92vw); height: min(560px, 120vw); }
+  .phone { position: absolute; width: 62%; aspect-ratio: 9 / 20; border-radius: 34px; padding: 8px;
+           background: linear-gradient(150deg, #3a322b, #0d0b09); box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), inset 0 0 0 1px rgba(251,146,60,.25); }
+  .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 27px; }
+  .phone.back { right: 0; top: 0; transform: rotate(6deg); opacity: .92; }
+  .phone.front { left: 0; bottom: 0; transform: rotate(-4deg); }
+  @media (prefers-reduced-motion: no-preference) {
+    .phone.front { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+    .phone.back { animation: rise2 .9s .15s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(40px) rotate(-4deg); } to { opacity: 1; transform: rotate(-4deg); } }
+    @keyframes rise2 { from { opacity: 0; transform: translateY(40px) rotate(6deg); } to { opacity: .92; transform: rotate(6deg); } }
+  }
+
+  /* Sections */
+  section { padding: 64px 0; }
+  .eyebrow { color: var(--orange); font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 6px; }
+  @media (prefers-color-scheme: dark) { .eyebrow { color: var(--bright); } }
+  h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(32px, 5vw, 44px); margin: 0 0 10px; line-height: 1.1; font-weight: 700; }
+  .sub { margin: 0 0 32px; color: var(--muted); max-width: 560px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;
+          box-shadow: 0 16px 34px -28px rgba(26,23,20,.45); transition: transform .2s ease, border-color .2s ease; }
+  .card:hover { transform: translateY(-3px); border-color: rgba(249,115,22,.5); }
+  .icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 16px;
+          background: linear-gradient(135deg, var(--glow), var(--orange)); color: #fff; }
+  .icon svg { width: 24px; height: 24px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  .offer { background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .offer-box { display: grid; gap: 24px; align-items: center; }
+  @media (min-width: 820px) { .offer-box { grid-template-columns: 1.2fr .8fr; } }
+  .ticket { border-radius: var(--radius); padding: 28px; color: #fff; text-align: center;
+            background: linear-gradient(135deg, var(--bright), var(--orange)); box-shadow: 0 24px 50px -28px rgba(194,65,12,.9); position: relative; }
+  .ticket::before, .ticket::after { content: ""; position: absolute; top: 50%; width: 26px; height: 26px; margin-top: -13px; border-radius: 50%; background: var(--cream); }
+  .ticket::before { left: -13px; } .ticket::after { right: -13px; }
+  .ticket .big { font-family: "Cormorant Garamond", Georgia, serif; font-size: 56px; font-weight: 700; line-height: 1; }
+  .ticket .code { display: inline-block; margin-top: 12px; border: 2px dashed rgba(255,255,255,.7); border-radius: 12px; padding: 6px 16px; font-weight: 700; letter-spacing: .14em; }
+  .ticket small { display: block; margin-top: 10px; opacity: .9; }
+
+  .steps { counter-reset: step; display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+  @media (min-width: 820px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .steps li { counter-increment: step; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .steps li::before { content: counter(step); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 12px;
+                      background: var(--night); color: var(--bright); font-weight: 700; }
+  @media (prefers-color-scheme: dark) { .steps li::before { background: var(--glow); color: var(--night); } }
+  .steps b { display: block; margin-bottom: 4px; }
+  .steps small { color: var(--muted); font-size: 14px; display: block; }
+
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; word-break: break-all;
+         background: var(--cream); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: block; margin-top: 10px; color: var(--ink); }
+
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+  details + details { margin-top: 10px; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--orange); font-weight: 700; font-size: 20px; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+
+  .final { text-align: center; background: var(--night); color: #FFF8F1; border-radius: 30px; padding: 48px 20px; margin: 0 0 64px;
+           background-image: radial-gradient(circle at 50% -10%, rgba(249,115,22,.40), transparent 60%); }
+  .final h2 { color: #FFF8F1; }
+  .final h2 em { color: var(--bright); }
+  .final p { color: rgba(255,248,241,.72); margin: 0 0 24px; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+  footer a { color: var(--orange); text-decoration: none; }
+  @media (prefers-color-scheme: dark) { footer a { color: var(--bright); } }
+  :focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; border-radius: 8px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="https://sensware.vercel.app/"><img src="icon.svg" alt="" width="40" height="40"><b>SENSWARE</b></a>
+      <a class="by" href="/">by Clevix Tech</a>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="kicker"><i></i> New · Android app v1.0.0</span>
+        <h1>Indian cast iron, <em>in your pocket.</em></h1>
+        <p class="lead">Shop hand-cast tawas, skillets, grill pans and Dutch ovens, save the ones you love and follow every order – with the same account you use on the Sensware website.</p>
+        <div class="cta">
+          <a class="btn btn-main" href="Sensware-1.0.0.apk" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            Install APK
+          </a>
+          <a class="btn btn-ghost" href="#install">How to install</a>
+        </div>
+        <div class="meta"><span>v1.0.0</span><span>3.3 MB</span><span>Android 8.0+</span><span>17 Nov 2026</span></div>
+        <div class="play" role="note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.7v18.6c0 .5.5.8.9.6L15 12 4.9 2.1c-.4-.2-.9.1-.9.6Z" fill="#00D7FE"/><path d="M15 12 4.9 21.9c.2.1.5.1.7 0l11.9-6.7L15 12Z" fill="#FF3A44"/><path d="M15 12 17.5 8.8 5.6 2.1c-.2-.1-.5-.1-.7 0L15 12Z" fill="#00F076"/><path d="m17.5 8.8-2.5 3.2 2.5 3.2 3.6-2c.6-.4.6-1.2 0-1.6l-3.6-2.8Z" fill="#FFD400"/></svg>
+          <span><small>Coming soon</small><b>Google Play</b></span>
+        </div>
+      </div>
+
+      <div class="phones">
+        <div class="phone back"><img src="screen-shop.webp" alt="Sensware app shop screen with cast iron tawa, skillet, Dutch oven and grill pan" width="540" height="1200" loading="eager"></div>
+        <div class="phone front"><img src="screen-home.webp" alt="Sensware app home screen with a sliding banner and shop by category" width="540" height="1200" loading="eager"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">What's inside</p>
+      <h2 class="serif">The whole Sensware store</h2>
+      <p class="sub">Everything from the website, built for your phone.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18l-1.5 10.5a2 2 0 0 1-2 1.5h-11a2 2 0 0 1-2-1.5L3 9Z"/><path d="M8 9V7a4 4 0 0 1 8 0v2"/></svg></div>
+          <h3>Shop every pan</h3>
+          <p>Browse by category, search and sort, and see photos, sizes and care notes for each piece.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></div>
+          <h3>Save favourites</h3>
+          <p>Tap the heart to keep a pan for later. Your saved list is kept with your account.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="13" height="10" rx="1.5"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div>
+          <h3>Track your orders</h3>
+          <p>See each order's status from placed to delivered, with your addresses stored for a quick checkout.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <h3>Easy sign-in</h3>
+          <p>Sign in with your password or a 6-digit code sent to your email. One account for app and web.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer">
+    <div class="wrap offer-box">
+      <div>
+        <p class="eyebrow">App welcome gift</p>
+        <h2 class="serif">Scratch the card, save 10%</h2>
+        <p class="sub" style="margin-bottom:0">Swipe the scratch card on the app's home screen to reveal your code. Use it at checkout on orders of ₹1,999 or more – once per customer.</p>
+      </div>
+      <div class="ticket" aria-label="10 percent off with code SCRATCH10">
+        <div class="big">10% off</div>
+        <div class="code">SCRATCH10</div>
+        <small>Orders of ₹1,999+ · once per customer</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <p class="eyebrow">About a minute</p>
+      <h2 class="serif">How to install</h2>
+      <p class="sub">Until the app is on Google Play, install it straight from this page.</p>
+      <ol class="steps">
+        <li><b>Tap Install APK</b><small>Open the file when the download finishes.</small></li>
+        <li><b>Allow the install</b><small>If asked about "Install unknown apps", turn on <strong>Allow from this source</strong> and go back.</small></li>
+        <li><b>Tap Install</b><small>If Play Protect warns you: More details → Install anyway.</small></li>
+        <li><b>Open Sensware</b><small>Sign in with your website account, or create one in the app.</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Safe to install</p>
+      <h2 class="serif">Signed and checked</h2>
+      <p class="sub">Built and signed by Clevix Tech. Every update is signed with the same key, so it installs over the old version without losing anything.</p>
+      <div class="grid">
+        <div class="card"><h3>Your account stays private</h3><p>Your orders, addresses and saved pans are visible only to you when you are signed in.</p></div>
+        <div class="card"><h3>Verify the file (SHA-256)</h3><p>Sensware-1.0.0.apk</p><code>2bac1f0ec00592a80670f7ba53d3756afe52f83a9217dd5e16d7b259595a974f</code></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2 class="serif">Good to know</h2>
+      <details><summary>When will it be on Google Play?</summary><p>Soon. Until then, get the latest version from this page – the Play Store version will update this one without losing your data.</p></details>
+      <details><summary>Is there an iPhone app?</summary><p>Android only for now. On an iPhone or a computer, shop on the <a href="https://sensware.vercel.app/">Sensware website</a> with the same account.</p></details>
+      <details><summary>I installed a test copy before</summary><p>If you had an earlier test copy, uninstall it once and install this one. Your account, saved pans and orders are kept on the server.</p></details>
+      <details><summary>Which phones does it work on?</summary><p>Any Android phone running Android 8.0 or newer.</p></details>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final">
+      <h2 class="serif">Get <em>Sensware</em> on your phone</h2>
+      <p>v1.0.0 · 3.3 MB · Android 8.0+</p>
+      <a class="btn btn-main" href="Sensware-1.0.0.apk" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Install APK
+      </a>
+      <div>
+        <div class="play" role="note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.7v18.6c0 .5.5.8.9.6L15 12 4.9 2.1c-.4-.2-.9.1-.9.6Z" fill="#00D7FE"/><path d="M15 12 4.9 21.9c.2.1.5.1.7 0l11.9-6.7L15 12Z" fill="#FF3A44"/><path d="M15 12 17.5 8.8 5.6 2.1c-.2-.1-.5-.1-.7 0L15 12Z" fill="#00F076"/><path d="m17.5 8.8-2.5 3.2 2.5 3.2 3.6-2c.6-.4.6-1.2 0-1.6l-3.6-2.8Z" fill="#FFD400"/></svg>
+          <span><small>Coming soon</small><b>Google Play</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y">2026</span> Sensware India, Coimbatore · App by <a href="/">Clevix Tech</a></span>
+    <span><a href="https://sensware.vercel.app/">sensware.vercel.app</a> · <a href="mailto:info@clevixtech.com">info@clevixtech.com</a></span>
+  </div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
