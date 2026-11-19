@@ -30,6 +30,8 @@ RewriteRule ^([^/]+)/?$ $1.html [L]
 
 # Day Planner: /dayplanner/ goes to its download page
 RedirectMatch 301 ^/dayplanner/?$ /dayplanner/android-app/
+# Clevix voice assistant was renamed Clevix Aura (2026-11-19)
+RedirectMatch 301 ^/clevix(/.*)?$ /clevix-aura$1
 # Old Day Planner APK links land on the current version
 RedirectMatch 302 ^/dayplanner/android-app/DayPlanner-2\.2\.2\.apk$ /dayplanner/android-app/DayPlanner-2.3.0.apk
 
