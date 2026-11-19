@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="432" height="432">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0" stop-color="#0B2A3D"/><stop offset="0.6" stop-color="#041220"/><stop offset="1" stop-color="#01060C"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="108" height="108" rx="24" fill="url(#bg)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M19.200000000000003,54 a34.8,34.8 0 1,0 69.6,0 a34.8,34.8 0 1,0 -69.6,0" stroke="#47BFFF" stroke-opacity="0.85" stroke-width="1.9"/>
+    <path d="M84.9,54 L87.2,54 M84.52,62.18 L86.07,62.59 M81.37,69.8 L82.75,70.6 M76.34,76.34 L77.48,77.48 M69.8,81.37 L70.6,82.75 M62.18,84.52 L62.59,86.07 M54,84.9 L54,87.2 M45.82,84.52 L45.41,86.07 M38.2,81.37 L37.4,82.75 M31.66,76.34 L30.52,77.48 M26.63,69.8 L25.25,70.6 M23.48,62.18 L21.93,62.59 M23.1,54 L20.8,54 M23.48,45.82 L21.93,45.41 M26.63,38.2 L25.25,37.4 M31.66,31.66 L30.52,30.52 M38.2,26.63 L37.4,25.25 M45.82,23.48 L45.41,21.93 M54,23.1 L54,20.8 M62.18,23.48 L62.59,21.93 M69.8,26.63 L70.6,25.25 M76.34,31.66 L77.48,30.52 M81.37,38.2 L82.75,37.4 M84.52,45.82 L86.07,45.41" stroke="#47BFFF" stroke-opacity="0.7" stroke-width="1.1"/>
+    <path d="M54,25.2 A28.8,28.8 0 0,1 80.1,41.83 M78.94,68.4 A28.8,28.8 0 0,1 51.49,82.69 M29.06,68.4 A28.8,28.8 0 0,1 30.41,37.48" stroke="#9EEEFF" stroke-width="3.6"/>
+    <path d="M54,34.8 L70.63,44.4 L70.63,63.6 L54,73.2 L37.37,63.6 L37.37,44.4 Z" stroke="#47BFFF" stroke-opacity="0.9" stroke-width="1.55"/>
+    <path d="M62.27,47.06 A10.8,10.8 0 1,0 62.27,60.94" stroke="#47BFFF" stroke-opacity="0.45" stroke-width="8.4"/>
+    <path d="M62.27,47.06 A10.8,10.8 0 1,0 62.27,60.94" stroke="#FFFFFF" stroke-width="3.8"/>
+  </g>
+  <path d="M52.45,34.8 a1.55,1.55 0 1,0 3.1,0 a1.55,1.55 0 1,0 -3.1,0 M69.08,44.4 a1.55,1.55 0 1,0 3.1,0 a1.55,1.55 0 1,0 -3.1,0 M69.08,63.6 a1.55,1.55 0 1,0 3.1,0 a1.55,1.55 0 1,0 -3.1,0 M52.45,73.2 a1.55,1.55 0 1,0 3.1,0 a1.55,1.55 0 1,0 -3.1,0 M35.82,63.6 a1.55,1.55 0 1,0 3.1,0 a1.55,1.55 0 1,0 -3.1,0 M35.82,44.4 a1.55,1.55 0 1,0 3.1,0 a1.55,1.55 0 1,0 -3.1,0" fill="#9EEEFF"/>
+</svg>
